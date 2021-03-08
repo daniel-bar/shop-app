@@ -1,0 +1,17 @@
+<div class="productContainer">
+    <img class="productContainer__image"
+        src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&h=350">
+
+    <div class="innerContainer">
+        <p class="innerContainer__description">ASOS Dark Future co-ord oversized in black with embroidery</p>
+        <select class="innerContainer__size">
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="LX">LX</option>
+        </select>
+        <button *ngFor="let imageButton of imageButtons; let i=index; trackBy: trackByFunction"
+            (click)="onClick(imageButton)" class="innerContainer__button">{{i}}</button>
+    </div>
+</div>

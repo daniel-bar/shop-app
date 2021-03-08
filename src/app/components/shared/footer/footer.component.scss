@@ -1,0 +1,57 @@
+@import '../../../../config.scss';
+
+.footer {
+  box-shadow: 0 -2px 3px map-get($colors, footer-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.upperFooter {
+  padding: 20px map-get($sizes, minimal-padding);
+  background-color: map-get($colors, dark);
+
+  .upperFooterInner {
+    max-width: map-get($sizes, web-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.lowerFooter {
+  padding: 15px map-get($sizes, minimal-padding);
+  background-color: map-get($colors, lower-footer-background);
+  box-shadow: 0 2px 3px map-get($colors, footer-shadow) inset;
+
+  .lowerFooterInner {
+    max-width: map-get($sizes, web-width);
+    margin: 0 auto;
+
+    .footerRights {
+      font-size: 1.6rem;
+      color: #FFF;
+    }
+  }
+}
+
+.footerMain {
+  display: flex;
+  justify-content: space-between;
+
+  .footerLinksContainer {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+      font-size: 2rem;
+      color: #FFF;
+    }
+
+    &__link {
+      margin-top: 4px;
+      font-size: 1.6rem;
+      color: #FFF;
+      text-decoration: none;
+    }
+  }
+}

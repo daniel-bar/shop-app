@@ -1,0 +1,41 @@
+@import '../../../../config.scss';
+
+.productContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    &__image {
+        display: flex;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+}
+
+.innerContainer {
+    align-items: center;
+    margin: 20px 0 0 20px;
+ 
+    &__description {
+        display: flex;
+        flex-direction: column;
+        font-size: 2rem;
+    }
+
+    &__size {
+        transition: all .3s ease;  
+        margin-bottom: 20px;
+        padding: 13px;
+        font-size: 1.5rem;
+        border: 2px solid  map-get($colors, dark);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    &__button {
+        display: flex;
+        margin-top: 15px;
+        padding: 10px;
+        border: 3px solid black;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+}

@@ -1,0 +1,56 @@
+@import '../../../../config.scss';
+
+:host {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+
+    &__header {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+    }
+
+    &__button {
+        background-image: linear-gradient(rgba(#000, .5), rgba(#000, .5)), url('../../../../assets/images/contact.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 1px solid #000;
+        border-radius: 8px;
+        padding: 20px 40px;
+        color: #fff;
+        font-size: 1.8rem;
+    }
+    
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: row;
+
+    &__header {
+        font-size: 1.8rem;
+        margin-left: 20px;
+    }
+
+    &__options {
+        transition: all .3s ease;  
+        margin-bottom: 20px;
+        padding: 17px;
+        font-size: 1.5rem;
+        border: 2px solid  map-get($colors, dark);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+        &:focus {
+            border-color: map-get($colors, dark-hover);
+        }
+    }
+}
