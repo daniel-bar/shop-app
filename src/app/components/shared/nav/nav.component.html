@@ -1,37 +1,59 @@
 <nav class="nav">
     <div class="innerNav">
-        <a class="innerNav__link" routerLink="/">Home</a>
+        <a class="navLink" routerLink="/">Home</a>
         <div class="innerNav__divider">&nbsp;</div>
-        <a class="innerNav__link innerNav__link--gender" routerLink="/?gender=men">Men</a>
+        <div class="linkContainer">
+            <a class="navLink navLink--gender" routerLink="/?gender=men">Men</a>
+            <div class="linkCategories">
+                <div class="linkCategoriesInner">
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=men&category=1">ALL</a>
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=men&category=2">Jeans</a>
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=men&category=3">Jackets</a>
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=men&category=4">Coats</a>
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=men&category=5">T-Shirts</a>
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=men&category=6">Sneakers</a>
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=men&category=7">Hats</a>
+                </div>
+            </div>
+        </div>
         <div class="innerNav__divider">&nbsp;</div>
-        <a class="innerNav__link innerNav__link--gender" routerLink="/?gender=women">Women</a>
+        <div class="linkContainer">
+            <a class="navLink navLink--gender" routerLink="/?gender=men">Women</a>
+            <div class="linkCategories">
+                <div class="linkCategoriesInner">
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=women&category=1">ALL</a>
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=women&category=2">Jeans</a>
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=women&category=3">Jackets</a>
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=women&category=4">Coats</a>
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=women&category=5">T-Shirts</a>
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=women&category=6">Sneakers</a>
+                    <a class="linkCategoriesInner__link" routerLink="/?gender=women&category=7">Hats</a>
+                </div>
+            </div>
+        </div>
         <div class="innerNav__divider">&nbsp;</div>
 
         <input class="innerNav__searchInput" type="text" placeholder="Search for items, brands and whatever..." />
 
-        <svg class="innerNav__icon" routerLink="/profile">
-            <use xlink:href="assets/icons/main.svg#profile"></use>
-        </svg>
+        <div class="innerNavIconContainer">
+            <svg class="icon" routerLink="/profile">
+                <use xlink:href="assets/icons/main.svg#profile"></use>
+            </svg>
+            <div class="iconDropDown">
+                <a class="iconDropDown__subscriptions">Sing in</a>
+                <div class="iconDropDown__divider">&nbsp;</div>
+                <a class="iconDropDown__subscriptions">Join</a>
 
-        <!-- <div class="innerNav__dropdownMenu">
-            <a class="innerNav__dropdownMenu__links" href="/">My account</a>
-            <a class="innerNav__dropdownMenu__links" href="/">My orders</a>
-        </div> -->
+                <div class="iconDropDownLinks">
+                    <a class="iconDropDownLinks__link"></a>
+                </div>
+            </div>
+        </div>
 
         <div class="innerNav__divider innerNav__divider--withMargin"></div>
 
-        <svg class="innerNav__icon" routerLink="/bag">
+        <svg class="icon" routerLink="/bag">
             <use xlink:href="assets/icons/main.svg#bag"></use>
         </svg>
     </div>
-
-    <!-- <div class="lowerNav">
-        <a class="lowerNav__Buttons" href="/">Category</a>
-        <a class="lowerNav__Buttons" href="/">Category</a>
-        <a class="lowerNav__Buttons" href="/">Category</a>
-        <a class="lowerNav__Buttons" href="/">Category</a>
-        <a class="lowerNav__Buttons" href="/">Category</a>
-        <a class="lowerNav__Buttons" href="/">Category</a>
-        <a class="lowerNav__Buttons" href="/">Category</a>
-    </div> -->
 </nav>

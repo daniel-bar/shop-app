@@ -6,6 +6,7 @@
     top: 0;
     height: 70px;
     background-color: map-get($colors, dark);
+    padding: map-get($sizes, minimal-padding);
 }
 
 .innerNav {
@@ -14,8 +15,8 @@
     align-items: center;
     max-width: map-get($sizes, web-width);
     margin: 0 auto;
-    
-    &__link {
+
+    .navLink {
         transition: all .3s ease;
         color: #FFF;
         font-size: 4rem;
@@ -58,35 +59,7 @@
         }
     }
 
-    // &__dropdownMenu {
-    //     transition: all 0.5s ease;
-    //     visibility: hidden;
-    //     opacity: 0;
-    //     position: absolute;
-    //     display: none;
-    //     left: 1190px;
-    //     top: 50px;
-
-    //     &:hover {
-    //         visibility: visible;
-    //         opacity: 1;
-    //         display: block;
-    //     }
-
-        
-    //     &__links {
-    //         display: block;
-    //         transition-duration: 0.5s;
-    //         background-color: red;
-    //         padding: 60px;
-               
-    //         &:hover {
-    //             cursor: pointer;
-    //         }
-    //     }
-    // }
-
-    &__icon {
+    .icon {
         cursor: pointer;
         transition: all .3s ease;
         min-width: 30px;
@@ -100,25 +73,77 @@
             fill: map-get($colors, icon-fill-hover);
         }
     }
-    
+
+    .innerNavIconContainer {
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        &:hover .iconDropDown {
+            display: flex;
+        }
+
+        .iconDropDown {
+            width: 300px;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            display: none;
+            box-shadow: 2px 2px 3px #4e4e4e, 0 2px 3px #4e4e4e inset;
+            background-color: #fff;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+
+            &__subscriptions {
+                margin: 0 auto;
+                font-size: 1.8rem;
+                padding: 5px;
+            }
+
+            &__divider {
+                width: 1px;
+                background-color: #000;
+            }
+        }
+    }
 }
 
-// .lowerNav {
-//     height: 100%;
-//     display: flex;
-//     align-items: center;
-//     max-width: map-get($sizes, web-width);
-//     margin: 0 auto;
-    
-//     &__Buttons {
-//         transition: all .3s ease;
-//         color: black;
-//         font-size: 2rem;
-//         text-decoration: none;
-//         padding: 23px 20px;
-        
-//         &:hover {
-//             background-color: map-get($colors, dark-hover);
-//         }
-//     }
-// }
+.linkContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &:hover .linkCategories {
+        display: block;
+    }
+
+    .linkCategories {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: none;
+        background-color: map-get($colors, nav-categories-background);
+        box-shadow: 0 4px 3px #2e2e2e inset;
+
+        .linkCategoriesInner {
+            max-width: map-get($sizes, web-width);
+            margin: 0 auto;
+            display: flex;
+
+            &__link {
+                color: #fff;
+                text-decoration: none;
+                padding: 20px 15px;
+                font-size: 1.7rem;
+
+                &:hover {
+                    background-color: #fff;
+                    color: map-get($colors, nav-categories-background);
+                    box-shadow: 0 4px 3px #2e2e2e inset;
+                }
+            }
+        }
+    }
+}

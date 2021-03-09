@@ -11,6 +11,7 @@ import { ContactComponent } from './components/pages/contact/contact.component';
 import { ProductComponent } from './components/pages/product/product.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { LoginComponent } from './components/pages/login/login.component';
     ProductComponent,
     RegisterComponent,
     LoginComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

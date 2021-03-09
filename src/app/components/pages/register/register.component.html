@@ -1,22 +1,22 @@
-<form class="registerForm">
-    <h1 class="registerForm__header">Register</h1>
-    <div class="inputContainer">
-        <label class="inputContainer__registerHeader">Email address:</label>
-        <input class="inputContainer__registerInput" type="email" placeholder="Email" size="50">
-        <label class="inputContainer__registerHeader">Username:</label>
-        <input class="inputContainer__registerInput" type="text" placeholder="Username" size="50">
-        <label class="inputContainer__registerHeader">Password:</label>
-        <input class="inputContainer__registerInput" type="password" placeholder="Password" size="50">
-        <label class="inputContainer__registerHeader">Repeat password:</label>
-        <input class="inputContainer__registerInput" type="password" placeholder="Password" size="50">
-        <button class="inputContainer__registerButton" type="submit">Register</button>
-    </div>
+<main class="register">
+    <form class="registerForm">
+        <h1 class="registerForm__header">Register</h1>
 
-    <h1 class="registerForm__divider">Or register with facebook</h1>
+        <label class="registerForm__label">Email address:</label>
+        <input class="registerForm__input" type="email" placeholder="Email">
+        <label class="registerForm__label">Username:</label>
+        <input class="registerForm__input" type="text" placeholder="Username">
+        <label class="registerForm__label">Password:</label>
+        <input class="registerForm__input" type="password" placeholder="Password">
+        <label class="registerForm__label">Repeat password:</label>
+        <input class="registerForm__input" type="password" placeholder="Password">
+        <button class="registerForm__button" type="submit">Register</button>
 
-    <a>
-        <svg class="registerForm__icon" routerLink="/">
-            <use xlink:href="assets/icons/main.svg#facebook"></use>
-        </svg>
-    </a>
-</form>
+        <h1 class="registerForm__divider">Or register with facebook</h1>
+        <a class="registerSocial">
+            <svg class="registerSocial__icon" routerLink="/">
+                <use xlink:href="assets/icons/main.svg#facebook"></use>
+            </svg>
+        </a>
+    </form>
+</main>
