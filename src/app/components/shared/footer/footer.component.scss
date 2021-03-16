@@ -52,6 +52,10 @@
       font-size: 1.6rem;
       color: #FFF;
       text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

@@ -7,18 +7,19 @@
     justify-content: center;
 }
 
-.contactForm {
+.form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 40%;
+    width: 500px;
+    max-width: 90%;
 
     &__header {
         font-size: 3.5rem;
+        text-align: center;
         margin-bottom: 20px;
     }
 
-    &__button {
+    &__submit {
         background-image: linear-gradient(rgba(#000, .5), rgba(#000, .5)), url('../../../../assets/images/contact.jpg');
         background-position: center;
         background-repeat: no-repeat;
@@ -32,22 +33,37 @@
     
 }
 
-.inputContainer {
+.formInputs {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin-bottom: 15px;
 
-    &__header {
+    &__label {
         font-size: 1.8rem;
-        margin-left: 20px;
+        margin-bottom: 5px;
     }
 
-    &__options {
+    &__select {
         transition: all .3s ease;  
         margin-bottom: 20px;
         padding: 17px;
         font-size: 1.5rem;
         border: 2px solid  map-get($colors, dark);
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        box-shadow: 0px 3px 8px #0000003d;
+
+        &:focus {
+            border-color: map-get($colors, dark-hover);
+        }
+    }
+
+    &__textarea {
+        transition: all .3s ease;
+        resize: none;
+        height: 200px;
+        padding: 17px;
+        font-size: 1.5rem;
+        border: 2px solid  map-get($colors, dark);
+        box-shadow: 0px 3px 8px #0000003d;
 
         &:focus {
             border-color: map-get($colors, dark-hover);

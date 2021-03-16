@@ -1,0 +1,87 @@
+@import '../../../../config.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    width: 800px;
+    padding: map-get($sizes, minimal-padding);
+}
+
+.productContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 3px #808080;
+    border-radius: 10px;
+
+    .productInfo {
+        display: flex;
+        flex-direction: column;
+        
+            &__image {
+                width: 200px;
+                height: 200px;
+            }
+
+            &__title {
+                text-align: center;
+                font-size: 1.8rem;
+                font-weight: 500;
+            }
+    }
+
+    .productDetails {
+        display: flex;
+        flex-direction: column;
+
+        &__price {
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        &__description {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+    }
+}
+
+.checkoutContainer {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        font-size: 3rem;
+        font-weight: 500;
+        margin-bottom: 15px;
+        border-bottom: 3px solid #808080;
+    }
+
+    &__totalPrice {
+        font-size: 1.8rem;
+        font-weight: 500;
+        margin-bottom: 70px;
+    }
+
+    &__button {
+        transition: all .3s ease;
+        padding: 10px;   
+        color: #000;
+        background-color: transparent;
+        border: 2px solid #000;
+        font-size: 2rem;
+        font-weight: 500;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+        &:hover {
+            color: #fff;
+            background-color: #03c04a;
+
+        }
+    }
+}

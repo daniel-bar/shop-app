@@ -1,0 +1,11 @@
+<div #button class="select" (click)="onClick()" [ngStyle]="{ width: width }">
+    <span class="select__placeholder">{{placeholder}}</span>
+    <svg class="select__icon">
+        <use xlink:href="assets/icons/main.svg#down-arrow"></use>
+    </svg>
+
+    <div *ngIf="options.length !== 0 && getOpen()" class="selectOptions">
+        <span *ngFor="let option of options; let i=index; trackBy: trackByFunction" class="selectOptions__option"
+            (click)="onSelect(i)">{{option}}</span>
+    </div>
+</div>
