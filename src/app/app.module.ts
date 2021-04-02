@@ -14,10 +14,12 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { AccountOverviewComponent } from './components/pages/profile/account-overview/account-overview.component';
 import { MyOrdersComponent } from './components/pages/profile/my-orders/my-orders.component';
-import { MyDetailsComponent } from './components/pages/profile/my-details/my-details.component';
+import { EditDetailsComponent } from './components/pages/profile/edit-details/edit-details.component';
 import { ShoppingBagComponent } from './components/pages/shopping-bag/shopping-bag.component';
 import { SelectComponent } from './components/UI/select/select.component';
 import { CheckoutComponent } from './components/pages/shopping-bag/checkout/checkout.component';
+import { AddProductComponent } from './components/pages/add-product/add-product.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,14 +35,16 @@ import { CheckoutComponent } from './components/pages/shopping-bag/checkout/chec
     ProfileComponent,
     AccountOverviewComponent,
     MyOrdersComponent,
-    MyDetailsComponent,
+    EditDetailsComponent,
     ShoppingBagComponent,
     SelectComponent,
     CheckoutComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

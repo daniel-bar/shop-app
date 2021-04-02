@@ -1,0 +1,17 @@
+<main class="addProduct">
+    <form class="addProductForm">
+        <h1 class="addProductForm__header">Add Product</h1>
+
+        <label class="addProductForm__label">Title:</label>
+        <input class="addProductForm__input" type="text" placeholder="Title">
+        <label class="addProductForm__label">Description:</label>
+        <input class="addProductForm__input" type="text" placeholder="Description">
+        <app-select [options]="['XS', 'S', 'M', 'L', 'XL']" placeholder="Size" width="100px"></app-select>
+        <!-- <div>
+            <button type="button" (click)="filePicker.click()">Product image</button>
+            <input type="file" #filePicker (change)="onImagePicked($event)">
+        </div> -->
+
+        <button class="addProductForm__button" type="submit">Register</button>
+    </form>
+</main>
