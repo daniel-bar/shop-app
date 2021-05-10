@@ -54,6 +54,12 @@
         align-self: center;
     }
 
+    &__error {
+        color: #ff0000;
+        font-size: 2rem;
+        margin-top: 10px;
+    }
+
     .registerSocial {
         cursor: default;
         border-radius: 50%;

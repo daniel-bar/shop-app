@@ -1,13 +1,22 @@
-<form class="form">
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <h2 class="form__header">Need help? Contact us</h2>
 
     <div class="formInputs">
         <label class="formInputs__label">Topic</label>
-        <app-select [options]="['delivery', 'returns & refunds', 'order issues', 'technical']"
-            placeholder="Select topic" width="300px"></app-select>
+        <app-select [options]="options" 
+        placeholder="Select topic" 
+        width="300px"
+        (onOptionSelected)="onOptionSelected($event)"
+        ></app-select>
         <label class="formInputs__label">Describe your problem:</label>
-        <textarea class="formInputs__textarea" placeholder="Right your concerns"></textarea>
+        <textarea
+        class="formInputs__textarea" 
+        placeholder="Write your concerns" 
+        formControlName="message"
+        ></textarea>
     </div>
+
+    <span *ngIf="getFormSubmitFailed()" class="form__error">Form is invalid</span>
 
     <button class="form__submit" type="submit">Send EMAIL</button>
 </form>

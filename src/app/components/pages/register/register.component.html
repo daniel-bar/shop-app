@@ -1,16 +1,18 @@
 <main class="register">
-    <form class="registerForm">
+    <form class="registerForm" [formGroup]="form" (ngSubmit)="onSubmit()">
         <h1 class="registerForm__header">Register</h1>
 
+        <label class="registerForm__label">Fullname:</label>
+        <input class="registerForm__input" type="text" placeholder="Fullname" formControlName="fullname">
         <label class="registerForm__label">Email address:</label>
-        <input class="registerForm__input" type="email" placeholder="Email">
-        <label class="registerForm__label">Username:</label>
-        <input class="registerForm__input" type="text" placeholder="Username">
+        <input class="registerForm__input" type="email" placeholder="Email" formControlName="email">
         <label class="registerForm__label">Password:</label>
-        <input class="registerForm__input" type="password" placeholder="Password">
+        <input class="registerForm__input" type="password" placeholder="Password" formControlName="password">
         <label class="registerForm__label">Repeat password:</label>
-        <input class="registerForm__input" type="password" placeholder="Password">
+        <input class="registerForm__input" type="password" placeholder="Password" formControlName="repeatPassword">
         <button class="registerForm__button" type="submit">Register</button>
+
+        <span *ngIf="getFormSubmitFailed()" class="registerForm__error">Form is invalid</span>
 
         <h1 class="registerForm__divider">Or register with facebook</h1>
         <a class="registerSocial">

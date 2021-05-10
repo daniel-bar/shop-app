@@ -1,12 +1,14 @@
 <main class="login">
-    <form class="loginForm">
+    <form class="loginForm" [formGroup]="form" (ngSubmit)="onSubmit()">
         <h1 class="loginForm__header">Login</h1>
 
         <label class="loginForm__label">Email address:</label>
-        <input class="loginForm__input" type="email" placeholder="Email">
+        <input class="loginForm__input" type="email" placeholder="Email" formControlName="email">
         <label class="loginForm__label">Password:</label>
-        <input class="loginForm__input" type="password" placeholder="Password">
+        <input class="loginForm__input" type="password" placeholder="Password" formControlName="password">
         <button class="loginForm__button" type="submit">Login</button>
+
+        <span *ngIf="getFormSubmitFailed()" class="loginForm__error">Form is invalid</span>
 
         <h1 class="loginForm__divider">Or login with facebook</h1>
         <a class="loginSocial">

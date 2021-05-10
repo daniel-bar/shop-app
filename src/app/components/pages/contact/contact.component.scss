@@ -30,7 +30,12 @@
         color: #fff;
         font-size: 1.8rem;
     }
-    
+
+    &__error {
+        color: #ff0000;
+        font-size: 2rem;
+        margin-top: 10px;
+    } 
 }
 
 .formInputs {

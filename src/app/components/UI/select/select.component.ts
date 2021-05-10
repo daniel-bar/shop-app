@@ -1,18 +1,19 @@
-import { Component, OnInit, Input, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, Output, HostListener, ViewChild, ElementRef, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent<OptionValue extends string> implements OnInit {
   private _open: boolean = false;
 
-  @ViewChild('button') private _$button: ElementRef;
+  @ViewChild('button') private _$button!: ElementRef;
 
-  @Input('options') public options: string[] = [];
-  @Input('placeholder') public placeholder: string = 'Select';
+  @Input('options') public options: OptionValue[] = [];
+  @Input('placeholder') public placeholder: OptionValue | string = 'Select';
   @Input('width') public width: string = '200px';
+  @Output('onOptionSelected') public onOptionSelected = new EventEmitter<number>();
 
   constructor() { }
 
@@ -56,5 +57,6 @@ export class SelectComponent implements OnInit {
   */
   public onSelect(index: number): void {
     this.placeholder = this.options[index];
+    this.onOptionSelected.emit(index);
   }
 }

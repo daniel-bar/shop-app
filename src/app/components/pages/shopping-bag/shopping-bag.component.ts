@@ -8,8 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class ShoppingBagComponent implements OnInit {
   private _onCheckoutView: boolean = false;
 
-  constructor() { }
-
   ngOnInit(): void {
   }
 
