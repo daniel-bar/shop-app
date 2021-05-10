@@ -6,7 +6,7 @@ import { Observable, throwError } from 'rxjs';
 import { HttpProductService } from './http/http-product.service';
 
 import { IProductInterface, ProductCategory, ProductGender } from '../models/product.model';
-import { IAddProductResponse, IGetProductResponse, IGetProductsResponse, IDeleteProductResponse } from '../models/response';
+import { IAddProductResponse, IGetProductResponse, IGetProductsResponse } from '../models/response';
 
 @Injectable()
 export class ProductService {

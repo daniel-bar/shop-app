@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Data } from '@angular/router';
-import { ProductResolver } from 'src/app/services/resolvers/product-resolver.service';
 
 @Component({
   selector: 'app-product',
