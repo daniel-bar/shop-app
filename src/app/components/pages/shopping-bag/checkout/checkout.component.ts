@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { PaymentService } from 'src/app/services/payment.service';
 import { PaymentMonth, PaymentYear } from '../../../../models/payment.model';
@@ -11,9 +11,9 @@ import { PaymentMonth, PaymentYear } from '../../../../models/payment.model';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+  public form!: FormGroup;
   private _onCheckoutView: boolean = false;
   private _formSubmitFailed: boolean = false;
-  public form!: FormGroup;
 
 
   public monthsOptions: PaymentMonth[] = [
@@ -42,6 +42,7 @@ export class CheckoutComponent implements OnInit {
   constructor(
     public paymentServie: PaymentService,
     public route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -113,6 +114,7 @@ export class CheckoutComponent implements OnInit {
     ).subscribe(
       () => {
         alert('Checked out and saved credit card details');
+        // this.router.navigate(['/']);
       },
       (error: string) => {
         console.log(error)

@@ -28,7 +28,6 @@ export class AddProductComponent implements OnInit {
   ];
   public genderOptions: ProductGender[] = [ProductGender.Men, ProductGender.Women];
 
-
   constructor(
     public productService: ProductService,
     public route: ActivatedRoute
@@ -68,6 +67,7 @@ export class AddProductComponent implements OnInit {
   * @returns void
   */
   public onSubmit(): void {
+    console.log(this.form)
     if (!this.form.valid) {
       this._formSubmitFailed = true;
       return;
@@ -87,7 +87,7 @@ export class AddProductComponent implements OnInit {
         alert('Message has been sent!');
       },
       (error: string) => {
-        console.log(error)
+        console.log(error);
         alert(error);
       });
   }

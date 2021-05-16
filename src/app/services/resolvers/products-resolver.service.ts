@@ -2,7 +2,6 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { HttpProductService } from '../http/http-product.service';
 import { IProductInterface } from '../../models/product.model';
 import { ProductService } from '../product.service';
 

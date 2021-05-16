@@ -23,6 +23,7 @@ import { PageGuardService } from './services/guards/page-guard.service';
 import { AuthGuardService } from './services/guards/auth-guard.service';
 
 import { ProductResolver } from './services/resolvers/product-resolver.service';
+import { ProductsResolver } from './services/resolvers/products-resolver.service';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/shared/nav/nav.component';
@@ -82,6 +83,7 @@ import { AddProductComponent } from './components/pages/add-product/add-product.
     AuthGuardService,
     EditUserDetailsService,
     ProductResolver,
+    ProductsResolver,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,

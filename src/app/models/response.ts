@@ -33,4 +33,8 @@ export interface IGetProductsResponse extends IResponse {
 
 export interface IDeleteProductResponse extends IResponse { }
 
+export interface IGetProductsSumResponse extends IResponse {
+    readonly data?: IProductInterface;
+}
+
 export interface IContactResponse extends IResponse { }

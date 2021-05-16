@@ -9,6 +9,7 @@ import {
     IGetProductResponse,
     IGetProductsResponse,
     IDeleteProductResponse,
+    IGetProductsSumResponse,
 } from 'src/app/models/response';
 import {
     ProductCategory,
@@ -66,10 +67,9 @@ export class HttpProductService {
 
     /**
     * Handler for getting products
-    * @param id id field of getting products
     * @returns string Observable
     */
-    public getProducts(id: string): Observable<IGetProductsResponse> {
+    public getProducts(): Observable<IGetProductsResponse> {
         const baseUrl = ENDPOINT;
 
         return this.http.get<IGetProductsResponse>(baseUrl + 'all');
@@ -84,5 +84,15 @@ export class HttpProductService {
         const baseUrl = ENDPOINT;
 
         return this.http.delete<IDeleteProductResponse>(baseUrl + id);
+    }
+
+    /**
+    * Handler for getting the products sum
+    * @returns string Observable
+    */
+    public getProductsSum(): Observable<IGetProductsSumResponse> {
+        const baseUrl = ENDPOINT;
+
+        return this.http.get<IGetProductsResponse>(baseUrl + 'sum/d');
     }
 }

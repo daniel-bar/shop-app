@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Data } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -6,8 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-  private _onCheckoutView: boolean = false;
+  product!: {
+    title: string;
+    description: string;
+    price: number;
+    image: File;
+  }
 
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute,
+  ) { }
+
+  ngOnInit() {
+    this.route.data
+      .subscribe(
+        (data: Data) => {
+          this.product = data['product'];
+        }
+      );
   }
 }

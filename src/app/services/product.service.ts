@@ -6,7 +6,12 @@ import { Observable, throwError } from 'rxjs';
 import { HttpProductService } from './http/http-product.service';
 
 import { IProductInterface, ProductCategory, ProductGender } from '../models/product.model';
-import { IAddProductResponse, IGetProductResponse, IGetProductsResponse } from '../models/response';
+import {
+  IAddProductResponse,
+  IGetProductResponse,
+  IGetProductsResponse,
+  IGetProductsSumResponse,
+} from '../models/response';
 
 @Injectable()
 export class ProductService {
@@ -85,17 +90,16 @@ export class ProductService {
 
   /**
   * Handler for getting products
-  * @param id id field of getting products form
   * @returns string Observable
   */
-  public getProducts(id: string): Observable<IProductInterface> {
-    return this.httpProductService.getProducts(id)
+  public getProducts(): Observable<IProductInterface> {
+    return this.httpProductService.getProducts()
       .pipe(catchError((errorResponse: HttpErrorResponse) => {
         let errorMessage: string;
 
         switch (errorResponse.status) {
           case 400:
-            errorMessage = 'Getting product failed';
+            errorMessage = 'Getting products failed';
             break;
           default:
             errorMessage = 'An error occurred';
@@ -128,6 +132,29 @@ export class ProductService {
         return throwError(errorMessage);
       }),
         map(() => null),
+      );
+  }
+
+  /**
+  * Handler for getting products sum
+  * @returns string Observable
+  */
+  public getProductsSum(): Observable<IProductInterface> {
+    return this.httpProductService.getProductsSum()
+      .pipe(catchError((errorResponse: HttpErrorResponse) => {
+        let errorMessage: string;
+
+        switch (errorResponse.status) {
+          case 400:
+            errorMessage = 'Getting products sum failed';
+            break;
+          default:
+            errorMessage = 'An error occurred';
+        }
+
+        return throwError(errorMessage);
+      }),
+        map((response: IGetProductsSumResponse) => response.data!),
       );
   }
 }

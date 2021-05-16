@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Data } from '@angular/router';
+import { ActivatedRoute, Data } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -9,17 +9,22 @@ import { ActivatedRoute, Router, Data } from '@angular/router';
 export class ProductComponent implements OnInit {
   imageSrc = '';
   productObject = '';
+  product!: {
+    title: string;
+    description: string;
+    price: number;
+    image: File;
+  }
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
   ) { }
 
   ngOnInit() {
     this.route.data
       .subscribe(
         (data: Data) => {
-          this.router = data['product'];
+          this.product = data['product'];
         }
       );
   }
