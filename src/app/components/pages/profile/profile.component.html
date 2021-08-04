@@ -1,13 +1,19 @@
 <div class="main">
-    <main class="mainInner">
-        <div class="toolbar">
-            <span class="toolbar__username">Hi, username</span>
-            <a class="toolbar__link" routerLink="/profile/account-overview">Account overview</a>
-            <a class="toolbar__link" routerLink="/profile/my-orders">My orders</a>
-            <a class="toolbar__link" routerLink="/profile/edit-details">Edit details</a>
-        </div>
-        <div class="content">
-            <router-outlet></router-outlet>
-        </div>
-    </main>
+  <main class="mainInner">
+    <div class="toolbar">
+      <span class="toolbar__username" *ngIf="getFullname() | async as fullname">
+        Hey, {{ fullname }}
+      </span>
+      <a class="toolbar__link" routerLink="/profile/account-overview"
+        >Account overview</a
+      >
+      <a class="toolbar__link" routerLink="/profile/my-orders">My orders</a>
+      <a class="toolbar__link" routerLink="/profile/edit-details"
+        >Edit details</a
+      >
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
 </div>

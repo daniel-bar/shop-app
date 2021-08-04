@@ -4,7 +4,11 @@ import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 
 import { HttpContactService } from './http/http-contact.service';
+
+import { IGetTopicsResponse } from '../models/response';
+
 import { Topic } from '../models/contact.model';
+import { ISelectDataItem } from '../models/shared/select-data';
 
 @Injectable()
 export class ContactService {
@@ -41,5 +45,25 @@ export class ContactService {
             }),
             map(() => null),
         );
+    }
+
+    /**
+    * Handler for getting topics
+    * @returns topics object array Observable
+    */
+    public getTopics(): Observable<ISelectDataItem[]> {
+        return this.httpContactService.getTopics()
+            .pipe(catchError((errorResponse: HttpErrorResponse) => {
+                let errorMessage: string;
+
+                switch (errorResponse.status) {
+                    default:
+                        errorMessage = 'An error occurred';
+                }
+
+                return throwError(errorMessage);
+            }),
+                map((response: IGetTopicsResponse) => response.data!),
+            );
     }
 }

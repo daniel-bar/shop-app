@@ -30,7 +30,7 @@ export class User extends DBCollection {
     * Getter for fullname
     * @returns fullname string
     */
-    public getFullname(): string {
+    public getFullname() {
         return this._fullname;
     }
 
@@ -38,7 +38,7 @@ export class User extends DBCollection {
     * Getter for email
     * @returns email string
     */
-    public getEmail(): string {
+    public getEmail() {
         return this._email;
     }
 
@@ -54,7 +54,7 @@ export class User extends DBCollection {
     * Setter for fullname
     * @returns void
     */
-    public setFullname(fullname: string): void {
+    public setFullname(fullname: string) {
         this._fullname = fullname;
     }
 
@@ -62,7 +62,7 @@ export class User extends DBCollection {
     * Setter for email
     * @returns void
     */
-    public setEmail(email: string): void {
+    public setEmail(email: string) {
         this._email = email;
     }
 
@@ -70,7 +70,7 @@ export class User extends DBCollection {
     * Setter for token
     * @returns void
     */
-    public setToken(token: string): void {
+    public setToken(token: string) {
         this._token = token;
     }
 }

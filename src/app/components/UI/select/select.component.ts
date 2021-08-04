@@ -17,14 +17,14 @@ export class SelectComponent<OptionValue extends string> implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   public trackByFunction(index: number, item: any): null | number {
     return !item ? null : index;
   }
 
-  @HostListener('window:click', ['$event']) private onWinClicked(event: MouseEvent): void {
+  @HostListener('window:click', ['$event']) private onWinClicked(event: MouseEvent) {
     if (
       this._open &&
       event.target !== this._$button.nativeElement &&
@@ -38,7 +38,7 @@ export class SelectComponent<OptionValue extends string> implements OnInit {
   * Getter for open flag 
   * @returns boolean indicated whether select options are open
   */
-  public getOpen(): boolean {
+  public getOpen() {
     return this._open;
   }
 
@@ -46,7 +46,7 @@ export class SelectComponent<OptionValue extends string> implements OnInit {
   * Handler for clicking the select
   * @returns void
   */
-  public onClick(): void {
+  public onClick() {
     this._open = !this._open;
   }
 
@@ -55,7 +55,7 @@ export class SelectComponent<OptionValue extends string> implements OnInit {
   * @param index the index of the selected option in the options input array
   * @returns void
   */
-  public onSelect(index: number): void {
+  public onSelect(index: number) {
     this.placeholder = this.options[index];
     this.onOptionSelected.emit(index);
   }

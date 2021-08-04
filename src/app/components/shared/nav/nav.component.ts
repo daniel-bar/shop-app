@@ -6,43 +6,41 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+  styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit, OnDestroy {
   private _subscription: Subscription[] = [];
   private _isLoggedIn: boolean = false;
 
-  constructor(
-    private authService: AuthService,
-  ) { }
+  constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {
-    this._subscription.push(this.authService.getUserListener().subscribe(
-      (user) => {
+  ngOnInit() {
+    this._subscription.push(
+      this.authService.getUserListener().subscribe((user) => {
         this._isLoggedIn = user !== null;
-      },
-    ));
+      })
+    );
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     for (const subscription of this._subscription) {
       subscription.unsubscribe();
     }
   }
 
   /**
-  * Getter for logged in prperty
-  * @returns boolean
-  */
-  public getIsLoggedIn(): boolean {
+   * Getter for logged in property
+   * @returns boolean
+   */
+  public getIsLoggedIn() {
     return this._isLoggedIn;
   }
 
   /**
-  * Handler for logout
-  * @returns void
-  */
-  public onLogout(): void {
+   * Handler for logout
+   * @returns void
+   */
+  public onLogout() {
     this.authService.logout();
   }
 }

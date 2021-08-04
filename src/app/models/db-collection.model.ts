@@ -19,7 +19,7 @@ export class DBCollection {
     * Getter for id of the model in the DB
     * @returns id string of the model
     */
-    public getId(): string {
+    public getId() {
         return this._id;
     }
 
@@ -27,7 +27,7 @@ export class DBCollection {
     * Getter for time of creation in the DB
     * @returns Date object of creation time
     */
-    public getCreatedAt(): Date {
+    public getCreatedAt() {
         return this._createdAt;
     }
 
@@ -35,7 +35,7 @@ export class DBCollection {
     * Getter for time of update in the DB
     * @returns Date object of update time
     */
-    public getUpdatedAt(): Date {
+    public getUpdatedAt() {
         return this._updatedAt;
     }
 }

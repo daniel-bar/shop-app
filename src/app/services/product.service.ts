@@ -10,8 +10,10 @@ import {
   IAddProductResponse,
   IGetProductResponse,
   IGetProductsResponse,
-  IGetProductsSumResponse,
+  IGetCategoriesResponse,
+  IGetGendersResponse,
 } from '../models/response';
+import { ISelectDataItem } from '../models/shared/select-data';
 
 @Injectable()
 export class ProductService {
@@ -92,7 +94,7 @@ export class ProductService {
   * Handler for getting products
   * @returns string Observable
   */
-  public getProducts(): Observable<IProductInterface> {
+  public getProducts(): Observable<IProductInterface[]> {
     return this.httpProductService.getProducts()
       .pipe(catchError((errorResponse: HttpErrorResponse) => {
         let errorMessage: string;
@@ -136,25 +138,42 @@ export class ProductService {
   }
 
   /**
-  * Handler for getting products sum
-  * @returns string Observable
+  * Handler for getting categories
+  * @returns categories object array Observable
   */
-  public getProductsSum(): Observable<IProductInterface> {
-    return this.httpProductService.getProductsSum()
+  public getCategories(): Observable<ISelectDataItem[]> {
+    return this.httpProductService.getCategories()
       .pipe(catchError((errorResponse: HttpErrorResponse) => {
         let errorMessage: string;
 
         switch (errorResponse.status) {
-          case 400:
-            errorMessage = 'Getting products sum failed';
-            break;
           default:
             errorMessage = 'An error occurred';
         }
 
         return throwError(errorMessage);
       }),
-        map((response: IGetProductsSumResponse) => response.data!),
+        map((response: IGetCategoriesResponse) => response.data!),
+      );
+  }
+
+  /**
+  * Handler for getting genders
+  * @returns genders object array Observable
+  */
+  public getGenders(): Observable<ISelectDataItem[]> {
+    return this.httpProductService.getGenders()
+      .pipe(catchError((errorResponse: HttpErrorResponse) => {
+        let errorMessage: string;
+
+        switch (errorResponse.status) {
+          default:
+            errorMessage = 'An error occurred';
+        }
+
+        return throwError(errorMessage);
+      }),
+        map((response: IGetGendersResponse) => response.data!),
       );
   }
 }

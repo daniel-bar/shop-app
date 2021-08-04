@@ -9,7 +9,8 @@ import {
     IGetProductResponse,
     IGetProductsResponse,
     IDeleteProductResponse,
-    IGetProductsSumResponse,
+    IGetCategoriesResponse,
+    IGetGendersResponse,
 } from 'src/app/models/response';
 import {
     ProductCategory,
@@ -32,7 +33,7 @@ export class HttpProductService {
     * @param description description field of adding product form
     * @param price price field of adding product form
     * @param image image field of adding product form
-    * @returns string Observable
+    * @returns IAddProductResponse Observable
     */
     public addProduct(
         category: ProductCategory,
@@ -44,55 +45,66 @@ export class HttpProductService {
     ): Observable<IAddProductResponse> {
         const baseUrl = ENDPOINT;
 
-        return this.http.post<IAddProductResponse>(baseUrl, {
-            category,
-            gender,
-            title,
-            description,
-            price,
-            image,
-        });
+        const postData = new FormData();
+        postData.append('category', category.toString());
+        postData.append('gender', gender.toString());
+        postData.append('title', title);
+        postData.append('description', description);
+        postData.append('price', price.toString());
+        postData.append('image', image);
+
+        return this.http.post<IAddProductResponse>(baseUrl, postData);
     }
 
     /**
     * Handler for getting product
     * @param id id field of getting product
-    * @returns string Observable
+    * @returns IGetProductResponse Observable
     */
     public getProduct(id: string): Observable<IGetProductResponse> {
-        const baseUrl = ENDPOINT;
+        const baseUrl = ENDPOINT + id;
 
-        return this.http.get<IGetProductResponse>(baseUrl + id);
+        return this.http.get<IGetProductResponse>(baseUrl);
     }
 
     /**
     * Handler for getting products
-    * @returns string Observable
+    * @returns IGetProductsResponse Observable
     */
     public getProducts(): Observable<IGetProductsResponse> {
-        const baseUrl = ENDPOINT;
+        const baseUrl = ENDPOINT + 'all';
 
-        return this.http.get<IGetProductsResponse>(baseUrl + 'all');
+        return this.http.get<IGetProductsResponse>(baseUrl);
     }
 
     /**
     * Handler for deleting product
     * @param id id field of deleting product
-    * @returns string Observable
+    * @returns IDeleteProductResponse Observable
     */
     public deleteProduct(id: string): Observable<IDeleteProductResponse> {
-        const baseUrl = ENDPOINT;
+        const baseUrl = ENDPOINT + id;
 
-        return this.http.delete<IDeleteProductResponse>(baseUrl + id);
+        return this.http.delete<IDeleteProductResponse>(baseUrl);
     }
 
     /**
-    * Handler for getting the products sum
-    * @returns string Observable
+    * Handler for getting categories
+    * @returns IGetCategoriesResponse Observable
     */
-    public getProductsSum(): Observable<IGetProductsSumResponse> {
-        const baseUrl = ENDPOINT;
+    public getCategories(): Observable<IGetCategoriesResponse> {
+        const baseUrl = ENDPOINT + 'categories';
 
-        return this.http.get<IGetProductsResponse>(baseUrl + 'sum/d');
+        return this.http.get<IGetCategoriesResponse>(baseUrl);
+    }
+
+    /**
+    * Handler for getting genders
+    * @returns IGetGendersResponse Observable
+    */
+    public getGenders(): Observable<IGetGendersResponse> {
+        const baseUrl = ENDPOINT + 'genders';
+
+        return this.http.get<IGetGendersResponse>(baseUrl);
     }
 }

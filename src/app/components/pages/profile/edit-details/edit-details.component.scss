@@ -1,55 +1,61 @@
-@import '../../../../../config.scss';
+@import "../../../../../config.scss";
 
 :host {
-    width: 80%;
-    max-width: 400px;
+  width: 80%;
+  max-width: 400px;
 }
 
 .editUserDetailsForm {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    &__header {
-        text-align: center;
-        margin-bottom: 10px;
-        font-size: 3rem;
-        font-weight: 500;
-        padding: 10px;
-        color: #fff;
-        background-color: #000;
+  &__header {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 3rem;
+    font-weight: 500;
+    padding: 10px;
+    color: #fff;
+    background-color: #000;
+  }
+
+  &__label {
+    font-size: 1.7rem;
+  }
+
+  &__input {
+    transition: all 0.3s ease;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    border: 2px solid map-get($colors, dark);
+    box-shadow: 0 3px 8px #0000003d;
+
+    &:focus {
+      border-color: map-get($colors, dark-hover);
     }
+  }
 
-    &__label {
-        font-size: 1.7rem;
+  &__error {
+    color: #ff0000;
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+
+  &__button {
+    transition: all 0.3s ease;
+    align-self: stretch;
+    font-size: 2rem;
+    padding: 15px;
+    border: 2px solid #000;
+    color: #fff;
+    background-color: #000;
+    box-shadow: 0 3px 8px #0000003d;
+
+    &:hover {
+      color: #000;
+      background-color: #fff;
     }
-    
-    &__input {
-        transition: all .3s ease;
-        padding: 10px;
-        width: 100%;
-        margin-bottom: 15px;
-        font-size: 1.5rem;
-        border: 2px solid  map-get($colors, dark);
-        box-shadow: 0 3px 8px #0000003d;
-
-        &:focus {
-            border-color: map-get($colors, dark-hover);
-        }
-    }
-
-    &__button {
-        transition: all .3s ease;  
-        align-self: stretch;
-        font-size: 2rem;
-        padding: 15px;
-        border: 2px solid #000;
-        color: #fff;
-        background-color: #000;
-        box-shadow: 0 3px 8px #0000003d;
-
-        &:hover {
-            color: #000;
-            background-color: #fff;
-        }
-    }
+  }
 }

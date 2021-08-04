@@ -1,15 +1,43 @@
 <main class="editUserDetails">
-    <form class="editUserDetailsForm" [formGroup]="form" (ngSubmit)="onSubmit()">
-        <h1 class="editUserDetailsForm__header">EDIT DETAILS!</h1>
+  <form class="editUserDetailsForm" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1 class="editUserDetailsForm__header">EDIT DETAILS!</h1>
 
-        <label class="editUserDetailsForm__label">Current password:</label>
-        <input class="editUserDetailsForm__input" type="password" placeholder="Password" formControlName="password">
-        <label class="editUserDetailsForm__label">New email address:</label>
-        <input class="editUserDetailsForm__input" type="email" placeholder="New email" formControlName="newEmail">
-        <label class="editUserDetailsForm__label">New password:</label>
-        <input class="editUserDetailsForm__input" type="password" placeholder="New password" formControlName="newPassword">
-        <label class="editUserDetailsForm__label">Repeat new password:</label>
-        <input class="editUserDetailsForm__input" type="password" placeholder="Repeat new password" formControlName="newPasswordRepeat">
-        <button class="editUserDetailsForm__button" type="submit">Save changes</button>
-    </form>
+    <label class="editUserDetailsForm__label">Current password:</label>
+    <input
+      class="editUserDetailsForm__input"
+      type="password"
+      placeholder="Password"
+      formControlName="password"
+    />
+    <label class="editUserDetailsForm__label">New email address:</label>
+    <input
+      class="editUserDetailsForm__input"
+      type="email"
+      placeholder="New email"
+      formControlName="newEmail"
+    />
+    <label class="editUserDetailsForm__label">New password:</label>
+    <input
+      class="editUserDetailsForm__input"
+      type="password"
+      placeholder="New password"
+      formControlName="newPassword"
+    />
+    <label class="editUserDetailsForm__label">Repeat new password:</label>
+    <input
+      class="editUserDetailsForm__input"
+      type="password"
+      placeholder="Repeat new password"
+      formControlName="newPasswordRepeat"
+    />
+    <button class="editUserDetailsForm__button" type="submit">
+      Save changes
+    </button>
+    <span *ngIf="getFormSubmitFailed()" class="editUserDetailsForm__error"
+      >Form is invalid</span
+    >
+    <span *ngIf="getFormError()" class="editUserDetailsForm__error">{{
+      getFormError()
+    }}</span>
+  </form>
 </main>

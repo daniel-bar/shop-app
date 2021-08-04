@@ -3,16 +3,17 @@
 
     <div class="formInputs">
         <label class="formInputs__label">Topic</label>
-        <app-select [options]="options" 
-        placeholder="Select topic" 
-        width="300px"
-        (onOptionSelected)="onOptionSelected($event)"
+        <app-select [options]="getTopicsLabels()" 
+            placeholder="Select topic" 
+            width="300px"
+            (onOptionSelected)="onOptionSelected($event)"
         ></app-select>
+        
         <label class="formInputs__label">Describe your problem:</label>
         <textarea
-        class="formInputs__textarea" 
-        placeholder="Write your concerns" 
-        formControlName="message"
+            class="formInputs__textarea" 
+            placeholder="Write your concerns" 
+            formControlName="message"
         ></textarea>
     </div>
 

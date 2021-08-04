@@ -1,38 +1,43 @@
-<main class="addProduct">
-    <form class="addProductForm" [formGroup]="form" (ngSubmit)="onSubmit()">
-        <h1 class="addProductForm__header">Add Product</h1>
+<main class="main">
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h1 class="form__header">Add Product</h1>
 
-        <label class="addProductForm__label">Category:</label>
+        <label class="form__label">Category:</label>
         <app-select 
-        class="addProductForm__select" 
-        [options]="['Jeans', 'Jackets', 'Coats', 'T-Shirts', 'Sneakers', 'Hats']" 
-        placeholder="Category" 
-        width="100px"
-        style="z-index: 100;"
-        (onOptionSelected)="onOptionSelected($event)"
+            class="form__select" 
+            [options]="getCategoriesLabels()"
+            placeholder="Category" 
+            width="100px"
+            style="z-index: 100;"
+            (onOptionSelected)="onCategoryOptionSelected($event)"
         ></app-select>
-        <label class="addProductForm__label">Gender:</label>
-        <app-select 
-        class="addProductForm__select" 
-        [options]="['Men', 'Women']" 
-        placeholder="Gender" 
-        width="100px"
-        (onOptionSelected)="onOptionSelected($event)"
-        ></app-select>
-        <label class="addProductForm__label">Title:</label>
-        <input class="addProductForm__input" type="text" placeholder="Title" formControlName="title">
-        <label class="addProductForm__label">Description:</label>
-        <input class="addProductForm__input" type="text" placeholder="Description" formControlName="description">
-        <label class="addProductForm__label">Price:</label>
-        <input class="addProductForm__input" type="text" placeholder="Price" formControlName="price">
-        <div>
-            <button class="addProductForm__button" type="button" (click)="filePicker.click()">Pick product image</button>
-            <input type="file" #filePicker (change)="onImagePicked($event)" style="display:none;">
-        </div>
-        <div class="addProductForm__imagePreview" *ngIf="imagePreview !== '' && imagePreview">
-            <img class="addProductForm__imagePreview--image" [src]="imagePreview" [alt]="form.value.title">
-        </div>
 
-        <button class="addProductForm__button" type="submit">Add product</button>
+        <label class="form__label">Gender:</label>
+        <app-select 
+            class="form__select" 
+            [options]="getGendersLabels()" 
+            placeholder="Gender" 
+            width="100px"
+            (onOptionSelected)="onGenderOptionSelected($event)"
+        ></app-select>
+
+        <label class="form__label">Title:</label>
+        <input class="form__input" type="text" placeholder="Title" formControlName="title">
+        <label class="form__label">Description:</label>
+        <input class="form__input" type="text" placeholder="Description" formControlName="description">
+        <label class="form__label">Price:</label>
+        <input class="form__input" type="number" placeholder="Price" formControlName="price">
+
+        <button class="form__button" type="button" (click)="filePicker.click()">Pick product image</button>
+        <input type="file" #filePicker (change)="onImagePicked($event)" style="display:none;">
+        
+        <img
+            *ngIf="!!getImagePreview()"
+            class="form__imagePreview"
+            [src]="getImagePreview()"
+            [alt]="form.value.title"
+        >
+
+        <button class="form__button" type="submit">Add product</button>
     </form>
 </main>

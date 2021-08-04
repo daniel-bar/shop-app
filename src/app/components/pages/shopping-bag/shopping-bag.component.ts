@@ -8,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class ShoppingBagComponent implements OnInit {
   private _onCheckoutView: boolean = false;
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   /**
   * Click handler for clicking the checkout button
   * @returns void 
   */
-  public onCheckoutClick(): void {
+  public onCheckoutClick() {
     this._onCheckoutView = true;
   }
 
@@ -23,7 +23,7 @@ export class ShoppingBagComponent implements OnInit {
   * Getter for on checkout view flag 
   * @returns boolean flag indicates whether client is on checkout view
   */
-  public getOnCheckoutView(): boolean {
+  public getOnCheckoutView() {
     return this._onCheckoutView;
   }
 }

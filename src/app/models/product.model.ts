@@ -1,17 +1,17 @@
 import { IDBCollectionInterface, DBCollection } from './db-collection.model';
 
 export enum ProductCategory {
-    Jeans = 'Jeans',
-    Jackets = 'Jackets',
-    Coats = 'Coats',
-    TShirts = 'T-Shirts',
-    Sneakers = 'Sneakers',
-    Hats = 'Hats',
+    Jeans,
+    Jackets,
+    Coats,
+    TShirts,
+    Sneakers,
+    Hats,
 }
 
 export enum ProductGender {
-    Men = 'Men',
-    Women = 'Women',
+    Men,
+    Women,
 }
 
 export interface IProductInterface extends IDBCollectionInterface {
@@ -111,7 +111,7 @@ export class Product extends DBCollection {
     }
 
     /**
-    * Setter for email
+    * Setter for title
     * @returns void
     */
     public setTitle(title: string): void {

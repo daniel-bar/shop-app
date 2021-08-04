@@ -4,7 +4,10 @@ import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 
-import { IContactResponse } from '../../models/response';
+import {
+    IContactResponse,
+    IGetTopicsResponse,
+} from '../../models/response';
 
 import { Topic } from '../../models/contact.model';
 
@@ -32,5 +35,15 @@ export class HttpContactService {
             topic,
             message,
         });
+    }
+
+    /**
+    * Handler for getting topics
+    * @returns IGetTopicsResponse Observable
+    */
+    public getTopics(): Observable<IGetTopicsResponse> {
+        const baseUrl = ENDPOINT + 'topics';
+
+        return this.http.get<IGetTopicsResponse>(baseUrl);
     }
 }

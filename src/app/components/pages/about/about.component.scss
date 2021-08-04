@@ -1,9 +1,9 @@
 @import '../../../../config.scss';
 
-.about {
+.main {
     padding: 0 map-get($sizes, minimal-padding);
 
-    .aboutInner {
+    .mainInner {
         margin: 0 auto;
         max-width: map-get($sizes, web-width);
         display: flex;

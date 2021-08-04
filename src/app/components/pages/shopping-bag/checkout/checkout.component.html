@@ -1,48 +1,98 @@
 <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h1 class="form__header">CHECKOUT</h1>
+  <h1 class="form__header">CHECKOUT</h1>
 
-    <h2 class="form__sectionHeader">DELIVERY ADDRESS</h2>
-    <label class="form__label">Full name:</label>
-    <input class="form__input" type="text" placeholder="Full name" formControlName="fullname">
-    <label class="form__label">Address:</label>
-    <input class="form__input" type="text" placeholder="Address" formControlName="address">
-    <label class="form__label">Country:</label>
-    <input class="form__input" type="text" placeholder="Country" formControlName="country">
-    <label class="form__label">City:</label>
-    <input class="form__input" type="text" placeholder="City" formControlName="city">
+  <h2 class="form__sectionHeader">DELIVERY ADDRESS</h2>
+  <label class="form__label">Full name:</label>
+  <input
+    class="form__input"
+    type="text"
+    placeholder="Full name"
+    formControlName="fullname"
+  />
+  <label class="form__label">Address:</label>
+  <input
+    class="form__input"
+    type="text"
+    placeholder="Address"
+    formControlName="address"
+  />
+  <label class="form__label">Country:</label>
+  <input
+    class="form__input"
+    type="text"
+    placeholder="Country"
+    formControlName="country"
+  />
+  <label class="form__label">City:</label>
+  <input
+    class="form__input"
+    type="text"
+    placeholder="City"
+    formControlName="city"
+  />
 
-    <h2 class="form__sectionHeader">PAYMENT TYPE</h2>
-    <label class="form__label">Card number:</label>
-    <input 
-    class="form__input" 
-    type="text" 
-    placeholder="Card number" 
-    maxlength="16" 
-    formControlName="cardNumber">
+  <h2 class="form__sectionHeader">PAYMENT TYPE</h2>
+  <label class="form__label">Card number:</label>
+  <input
+    class="form__input"
+    type="text"
+    placeholder="Card number"
+    maxlength="16"
+    formControlName="cardNumber"
+  />
 
-    <label class="form__label">Expiry date:</label>
-    <div class="paymentSelect">
-        <app-select 
-        [options]="['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']" 
-        placeholder="Month" 
-        width="100px" 
-        (onOptionSelected)="onOptionSelected($event)">
+  <label class="form__label">Expiry date:</label>
+  <div class="paymentSelect">
+    <app-select
+      [options]="[
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        '10',
+        '11',
+        '12'
+      ]"
+      placeholder="Month"
+      width="100px"
+      (onOptionSelected)="onOptionSelectedMonth($event)"
+    >
     </app-select>
-        <app-select 
-        [options]="['2021', '2022', '2023', '2024', '2025']" 
-        placeholder="Year"
-        width="100px" 
-        (onOptionSelected)="onOptionSelected($event)">
+    <app-select
+      [options]="['2021', '2022', '2023', '2024', '2025']"
+      placeholder="Year"
+      width="100px"
+      (onOptionSelected)="onOptionSelectedYear($event)"
+    >
     </app-select>
-    </div>
+  </div>
 
-    <label class="form__label">Name on card:</label>
-    <input class="form__input" type="text" placeholder="Name on card" formControlName="nameOnCard">
+  <label class="form__label">Name on card:</label>
+  <input
+    class="form__input"
+    type="text"
+    placeholder="Name on card"
+    formControlName="nameOnCard"
+  />
 
-    <label class="form__label">CVV:</label>
-    <input class="form__input" type="text" placeholder="CVV" maxlength="4" formControlName="cvv">
+  <label class="form__label">CVV:</label>
+  <input
+    class="form__input"
+    type="text"
+    placeholder="CVV"
+    maxlength="4"
+    formControlName="cvv"
+  />
 
-    <label class="form__label"><input type="checkbox" formControlName="save"> Save credit card details</label>
+  <label class="form__label"
+    ><input type="checkbox" formControlName="save" /> Save credit card
+    details</label
+  >
 
-    <button class="form__button" type="submit">PAY 3000</button>
+  <button class="form__button" type="submit">PAY 3000</button>
 </form>

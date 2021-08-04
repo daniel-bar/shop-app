@@ -1,10 +1,10 @@
 @import '../../../../config.scss';
 
-.addProduct {
+.main {
     padding: 0 map-get($sizes, minimal-padding);
 }
 
-.addProductForm {
+.form {
     display: flex;
     flex-direction: column;
     max-width: 500px;
@@ -57,11 +57,8 @@
     }
 
     &__imagePreview {
-        height: 10rem;
-        margin: 1rem 0;
-
-        &--image {
-            height: 100%;
-        }
+        margin-top: 20px;
+        height: 100px;
+        object-fit: contain;
     }
 }
