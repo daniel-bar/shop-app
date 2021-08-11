@@ -7,7 +7,7 @@ import { AuthGuardService } from './services/guards/auth-guard.service';
 import { ProductResolver } from './services/resolvers/product-resolver.service';
 import { AddProductResolver } from './services/resolvers/add-product-resolver.service';
 import { ContactResolver } from './services/resolvers/contact-resolver.service';
-// import { FullnameResolver } from './services/resolvers/fullname-resolver.service';
+import { ProductsResolver } from './services/resolvers/products-resolver.service';
 
 import { HomeComponent } from './components/pages/home/home.component';
 import { AboutComponent } from './components/pages/about/about.component';
@@ -22,7 +22,7 @@ import { MyOrdersComponent } from './components/pages/profile/my-orders/my-order
 import { ShoppingBagComponent } from './components/pages/shopping-bag/shopping-bag.component';
 import { CheckoutComponent } from './components/pages/shopping-bag/checkout/checkout.component';
 import { AddProductComponent } from './components/pages/add-product/add-product.component';
-import { ProductListComponent } from './components/pages/product-list/product-list.component';
+import { ProductsComponent } from './components/pages/products-list/products-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +40,7 @@ const routes: Routes = [
     resolve: { topics: ContactResolver },
   },
   {
-    path: 'product',
+    path: 'product/:id',
     component: ProductComponent,
     resolve: { product: ProductResolver },
   },
@@ -50,7 +50,11 @@ const routes: Routes = [
     canActivate: [PageGuardService],
     children: [{ path: 'checkout', component: CheckoutComponent }],
   },
-  { path: 'product-list', component: ProductListComponent },
+  {
+    path: 'product-list',
+    component: ProductsComponent,
+    resolve: { products: ProductsResolver },
+  },
   {
     path: 'register',
     component: RegisterComponent,

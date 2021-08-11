@@ -3,9 +3,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 
+import { ISelectDataItem } from '../models/shared/select-data';
+
 import { HttpProductService } from './http/http-product.service';
 
-import { IProductInterface, ProductCategory, ProductGender } from '../models/product.model';
+import {
+  IProductInterface,
+  ProductCategory,
+  ProductGender,
+} from '../models/product.model';
 import {
   IAddProductResponse,
   IGetProductResponse,
@@ -13,67 +19,57 @@ import {
   IGetCategoriesResponse,
   IGetGendersResponse,
 } from '../models/response';
-import { ISelectDataItem } from '../models/shared/select-data';
 
 @Injectable()
 export class ProductService {
-
-  constructor(
-    private httpProductService: HttpProductService,
-  ) { }
+  constructor(private httpProductService: HttpProductService) {}
 
   /**
-  * Handler for adding product
-  * @param category category field of adding product form
-  * @param gender gender field of adding product form
-  * @param title title field of adding product form
-  * @param description description field of adding product form
-  * @param price price field of adding product form
-  * @param image image field of adding product form
-  * @returns string Observable
-  */
+   * Handler for adding product
+   * @param category category field of adding product form
+   * @param gender gender field of adding product form
+   * @param title title field of adding product form
+   * @param description description field of adding product form
+   * @param price price field of adding product form
+   * @param image image field of adding product form
+   * @returns string Observable
+   */
   public addProduct(
     category: ProductCategory,
     gender: ProductGender,
     title: string,
     description: string,
     price: number,
-    image: File,
+    image: File
   ): Observable<IProductInterface> {
-    return this.httpProductService.addProduct(
-      category,
-      gender,
-      title,
-      description,
-      price,
-      image,
-    ).pipe(
-      catchError((errorResponse: HttpErrorResponse) => {
-        let errorMessage: string;
+    return this.httpProductService
+      .addProduct(category, gender, title, description, price, image)
+      .pipe(
+        catchError((errorResponse: HttpErrorResponse) => {
+          let errorMessage: string;
 
-        switch (errorResponse.status) {
-          case 400:
-            errorMessage = 'Adding product failed';
-            break;
-          default:
-            errorMessage = 'An error occurred';
-        }
+          switch (errorResponse.status) {
+            case 400:
+              errorMessage = 'Adding product failed';
+              break;
+            default:
+              errorMessage = 'An error occurred';
+          }
 
-        return throwError(errorMessage);
-      }),
-      map((response: IAddProductResponse) => response.data!),
-    );
+          return throwError(errorMessage);
+        }),
+        map((response: IAddProductResponse) => response.data!)
+      );
   }
 
-
   /**
-  * Handler for getting product
-  * @param id id field of getting product form
-  * @returns string Observable
-  */
+   * Handler for getting product
+   * @param id id field of getting product form
+   * @returns string Observable
+   */
   public getProduct(id: string): Observable<IProductInterface> {
-    return this.httpProductService.getProduct(id)
-      .pipe(catchError((errorResponse: HttpErrorResponse) => {
+    return this.httpProductService.getProduct(id).pipe(
+      catchError((errorResponse: HttpErrorResponse) => {
         let errorMessage: string;
 
         switch (errorResponse.status) {
@@ -86,17 +82,20 @@ export class ProductService {
 
         return throwError(errorMessage);
       }),
-        map((response: IGetProductResponse) => response.data!),
-      );
+      map((response: IGetProductResponse) => response.data!)
+    );
   }
 
   /**
-  * Handler for getting products
-  * @returns string Observable
-  */
-  public getProducts(): Observable<IProductInterface[]> {
-    return this.httpProductService.getProducts()
-      .pipe(catchError((errorResponse: HttpErrorResponse) => {
+   * Handler for getting products
+   * @returns string Observable
+   */
+  public getProducts(
+    gender?: ProductGender,
+    category?: ProductCategory
+  ): Observable<IProductInterface[]> {
+    return this.httpProductService.getProducts(gender, category).pipe(
+      catchError((errorResponse: HttpErrorResponse) => {
         let errorMessage: string;
 
         switch (errorResponse.status) {
@@ -109,41 +108,17 @@ export class ProductService {
 
         return throwError(errorMessage);
       }),
-        map((response: IGetProductsResponse) => response.data!),
-      );
+      map((response: IGetProductsResponse) => response.data!)
+    );
   }
 
   /**
-  * Handler for deleting product
-  * @param id id field of deleting product form
-  * @returns string Observable
-  */
-  public deleteProduct(id: string): Observable<null> {
-    return this.httpProductService.deleteProduct(id)
-      .pipe(catchError((errorResponse: HttpErrorResponse) => {
-        let errorMessage: string;
-
-        switch (errorResponse.status) {
-          case 400:
-            errorMessage = 'Deleting product failed';
-            break;
-          default:
-            errorMessage = 'An error occurred';
-        }
-
-        return throwError(errorMessage);
-      }),
-        map(() => null),
-      );
-  }
-
-  /**
-  * Handler for getting categories
-  * @returns categories object array Observable
-  */
+   * Handler for getting categories
+   * @returns categories object array Observable
+   */
   public getCategories(): Observable<ISelectDataItem[]> {
-    return this.httpProductService.getCategories()
-      .pipe(catchError((errorResponse: HttpErrorResponse) => {
+    return this.httpProductService.getCategories().pipe(
+      catchError((errorResponse: HttpErrorResponse) => {
         let errorMessage: string;
 
         switch (errorResponse.status) {
@@ -153,17 +128,17 @@ export class ProductService {
 
         return throwError(errorMessage);
       }),
-        map((response: IGetCategoriesResponse) => response.data!),
-      );
+      map((response: IGetCategoriesResponse) => response.data!)
+    );
   }
 
   /**
-  * Handler for getting genders
-  * @returns genders object array Observable
-  */
+   * Handler for getting genders
+   * @returns genders object array Observable
+   */
   public getGenders(): Observable<ISelectDataItem[]> {
-    return this.httpProductService.getGenders()
-      .pipe(catchError((errorResponse: HttpErrorResponse) => {
+    return this.httpProductService.getGenders().pipe(
+      catchError((errorResponse: HttpErrorResponse) => {
         let errorMessage: string;
 
         switch (errorResponse.status) {
@@ -173,7 +148,7 @@ export class ProductService {
 
         return throwError(errorMessage);
       }),
-        map((response: IGetGendersResponse) => response.data!),
-      );
+      map((response: IGetGendersResponse) => response.data!)
+    );
   }
 }

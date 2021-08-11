@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { IProductInterface, Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -7,6 +9,9 @@ import { ActivatedRoute, Data } from '@angular/router';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+  private _subscriptions: Subscription[] = [];
+  private _product!: Product;
+
   imageSrc = '';
   productObject = '';
   product!: {
@@ -21,12 +26,21 @@ export class ProductComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.data
-      .subscribe(
-        (data: Data) => {
-          this.product = data['product'];
-        }
-      );
+    this._subscriptions.push(
+      this.route.data.subscribe((data: Data) => {
+        this._product = new Product(data['product'] as IProductInterface);
+      })
+    );
+  }
+
+  ngOnDestroy() {
+    for (const subscription of this._subscriptions) {
+      subscription.unsubscribe();
+    }
+  }
+
+  public getProduct() {
+    return this._product;
   }
 
   public trackByFunction(index: number, item: any): null | number {

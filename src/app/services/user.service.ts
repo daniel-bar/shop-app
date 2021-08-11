@@ -24,7 +24,7 @@ export class UserService {
   public editUserDetails(
     password: string,
     newEmail?: string,
-    newPassword?: string
+    newPassword?: string,
   ): Observable<IUserInterface> {
     return this.httpUserService
       .editUserDetails(password, newEmail, newPassword)

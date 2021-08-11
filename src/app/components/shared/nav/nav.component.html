@@ -5,54 +5,48 @@
     <div class="linkContainer">
       <a
         class="navLink navLink--gender"
-        routerLink="/"
-        [queryParams]="{ gender: 'men' }"
-        >Men</a
-      >
+        [routerLink]="['/product-list']"
+        [queryParams]="{ gender: 1 }">
+        Men
+      </a>
       <div class="linkCategories">
         <div class="linkCategoriesInner">
           <a
             class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'men', category: 1 }"
-            >ALL</a
-          >
+            [routerLink]="['/product-list']"
+            [queryParams]="{ gender: 1, category: 1 }">
+            Jeans
+          </a>
           <a
             class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'men', category: 2 }"
-            >Jeans</a
-          >
+            [routerLink]="['/product-list']"
+            [queryParams]="{ gender: 1, category: 2 }">
+            Jackets
+          </a>
           <a
             class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'men', category: 3 }"
-            >Jackets</a
-          >
+            [routerLink]="['/product-list']"
+            [queryParams]="{ gender: 1, category: 3 }">
+            Coats
+          </a>
           <a
             class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'men', category: 4 }"
-            >Coats</a
-          >
+            [routerLink]="['/product-list']"
+            [queryParams]="{ gender: 1, category: 4 }">
+            T-Shirts
+          </a>
           <a
             class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'men', category: 5 }"
-            >T-Shirts</a
-          >
+            [routerLink]="['/product-list']"
+            [queryParams]="{ gender: 1, category: 5 }">
+            Sneakers
+          </a>
           <a
             class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'men', category: 6 }"
-            >Sneakers</a
-          >
-          <a
-            class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'men', category: 7 }"
-            >Hats</a
-          >
+            [routerLink]="['/product-list']"
+            [queryParams]="{ gender: 1, category: 6 }">
+            Hats
+          </a>
         </div>
       </div>
     </div>
@@ -60,54 +54,48 @@
     <div class="linkContainer">
       <a
         class="navLink navLink--gender"
-        routerLink="/"
-        [queryParams]="{ gender: 'women' }"
-        >Women</a
-      >
+        [routerLink]="['/product-list']"
+        [queryParams]="{ gender: 2 }">
+        Women
+      </a>
       <div class="linkCategories">
         <div class="linkCategoriesInner">
           <a
             class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'women', category: 1 }"
-            >ALL</a
-          >
+            [routerLink]="['/product-list']"
+            [queryParams]="{ gender: 2, category: 1 }">
+            Jeans
+          </a>
           <a
             class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'women', category: 2 }"
-            >Jeans</a
-          >
+            [routerLink]="['/product-list']"
+            [queryParams]="{ gender: 2, category: 2 }">
+            Jackets
+          </a>
           <a
             class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'women', category: 3 }"
-            >Jackets</a
-          >
+            [routerLink]="['/product-list']"
+            [queryParams]="{ gender: 2, category: 3 }">
+            Coats
+          </a>
           <a
             class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'women', category: 4 }"
-            >Coats</a
-          >
+            [routerLink]="['/product-list']"
+            [queryParams]="{ gender: 2, category: 4 }">
+            T-Shirts
+          </a>
           <a
             class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'women', category: 5 }"
-            >T-Shirts</a
-          >
+            [routerLink]="['/product-list']"
+            [queryParams]="{ gender: 2, category: 5 }">
+            Sneakers
+          </a>
           <a
             class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'women', category: 6 }"
-            >Sneakers</a
-          >
-          <a
-            class="linkCategoriesInner__link"
-            routerLink="/"
-            [queryParams]="{ gender: 'women', category: 7 }"
-            >Hats</a
-          >
+            [routerLink]="['/product-list']"
+            [queryParams]="{ gender: 2, category: 6 }">
+            Hats
+          </a>
         </div>
       </div>
     </div>
@@ -116,8 +104,7 @@
     <input
       class="innerNav__searchInput"
       type="text"
-      placeholder="Search for items, brands and whatever..."
-    />
+      placeholder="Search for items, brands and whatever..."/>
 
     <div class="innerNavIconContainer">
       <svg class="icon" routerLink="/profile">
@@ -126,25 +113,25 @@
       <div class="iconDropDown">
         <div class="iconDropDownHeader">
           <ng-container *ngIf="!getIsLoggedIn()">
-            <a routerLink="/login" class="iconDropDownHeader__subscriptions"
-              >Sign in</a
-            >
+            <a routerLink="/login" class="iconDropDownHeader__subscriptions">
+              Sign in
+            </a>
             <div class="iconDropDownHeader__divider">&nbsp;</div>
-            <a routerLink="/register" class="iconDropDownHeader__subscriptions"
-              >Join</a
-            >
+            <a routerLink="/register" class="iconDropDownHeader__subscriptions">
+              Join
+            </a>
           </ng-container>
           <ng-container *ngIf="getIsLoggedIn()">
-            <a (click)="onLogout()" class="iconDropDownHeader__subscriptions"
-              >Log out</a
-            >
+            <a (click)="onLogout()" class="iconDropDownHeader__subscriptions">
+              Log out
+            </a>
           </ng-container>
         </div>
         <div class="iconDropDownMain">
           <a routerLink="/profile" class="iconDropDownMain__link">My account</a>
-          <a routerLink="/shopping-bag" class="iconDropDownMain__link"
-            >My orders</a
-          >
+          <a routerLink="/shopping-bag" class="iconDropDownMain__link">
+            My orders
+          </a>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { IDBCollectionInterface, DBCollection } from './db-collection.model';
 
 export enum ProductCategory {
-    Jeans,
+    Jeans = 1,
     Jackets,
     Coats,
     TShirts,
@@ -10,7 +10,7 @@ export enum ProductCategory {
 }
 
 export enum ProductGender {
-    Men,
+    Men = 1,
     Women,
 }
 
@@ -20,7 +20,7 @@ export interface IProductInterface extends IDBCollectionInterface {
     readonly title: string;
     readonly description: string;
     readonly price: number;
-    readonly image: string;
+    readonly imageFileName: string;
 }
 
 export class Product extends DBCollection {
@@ -29,7 +29,7 @@ export class Product extends DBCollection {
     private _title: string;
     private _description: string;
     private _price: number;
-    private _image: string;
+    private _imageFileName: string;
 
     constructor(productData: IProductInterface) {
         super({
@@ -43,14 +43,14 @@ export class Product extends DBCollection {
         this._title = productData.title;
         this._description = productData.description;
         this._price = productData.price;
-        this._image = productData.image;
+        this._imageFileName = productData.imageFileName;
     }
 
     /**
     * Getter for category
     * @returns category string
     */
-    public getCategory(): ProductCategory {
+    public getCategory() {
         return this._category;
     }
 
@@ -58,7 +58,7 @@ export class Product extends DBCollection {
     * Getter for gender
     * @returns gender string
     */
-    public getGender(): ProductGender {
+    public getGender() {
         return this._gender;
     }
 
@@ -66,7 +66,7 @@ export class Product extends DBCollection {
     * Getter for title
     * @returns title string
     */
-    public getTitle(): string {
+    public getTitle() {
         return this._title;
     }
 
@@ -74,7 +74,7 @@ export class Product extends DBCollection {
     * Getter for description
     * @returns description string
     */
-    public getDescription(): string {
+    public getDescription() {
         return this._description;
     }
 
@@ -87,18 +87,18 @@ export class Product extends DBCollection {
     }
 
     /**
-    * Getter for image
-    * @returns image file
+    * Getter for imageFileName
+    * @returns image file name
     */
-    public getimage(): string {
-        return this._image;
+    public getImageFileName(): string {
+        return this._imageFileName;
     }
 
     /**
     * Setter for category
     * @returns void
     */
-    public setCategory(category: ProductCategory): void {
+    public setCategory(category: ProductCategory) {
         this._category = category;
     }
 
@@ -106,7 +106,7 @@ export class Product extends DBCollection {
     * Setter for gender
     * @returns void
     */
-    public setGender(gender: ProductGender): void {
+    public setGender(gender: ProductGender) {
         this._gender = gender;
     }
 
@@ -114,7 +114,7 @@ export class Product extends DBCollection {
     * Setter for title
     * @returns void
     */
-    public setTitle(title: string): void {
+    public setTitle(title: string) {
         this._title = title;
     }
 
@@ -122,7 +122,7 @@ export class Product extends DBCollection {
     * Setter for description
     * @returns void
     */
-    public setDescription(description: string): void {
+    public setDescription(description: string) {
         this._description = description;
     }
 
@@ -130,7 +130,7 @@ export class Product extends DBCollection {
     * Setter for price
     * @returns void
     */
-    public setPrice(price: number): void {
+    public setPrice(price: number) {
         this._price = price;
     }
 
@@ -138,7 +138,7 @@ export class Product extends DBCollection {
     * Setter for image
     * @returns void
     */
-    public setimage(image: string): void {
-        this._image = image;
+    public setimageFileName(imageFileName: string) {
+        this._imageFileName = imageFileName;
     }
 }

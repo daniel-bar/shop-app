@@ -17,13 +17,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this._user = this.authService.getUserListener().pipe(
       filter((user: User | null) => !!user)
-      // shareReplay(1)
     );
   }
-
-  // fullname$ = this._user.pipe(
-  //   map((user: User | null) => `${user?.getFullname()}`)
-  // );
 
   /**
    * Getter for fullname

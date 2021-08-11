@@ -58,7 +58,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
   public onSubmit() {
     if (!this.form.valid) {
       this._formSubmitFailed = true;
-
       return;
     }
 

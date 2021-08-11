@@ -5,14 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { AuthInterceptorService } from './services/auth-interceptor.service';
-
 import { AuthService } from './services/auth.service';
 import { ContactService } from './services/contact.service';
 import { ProductService } from './services/product.service';
 import { PaymentService } from './services/payment.service';
 import { UserService } from './services/user.service';
 
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { HttpAuthService } from './services/http/http-auth.service';
 import { HttpContactService } from './services/http/http-contact.service';
 import { HttpProductService } from './services/http/http-product.service';
@@ -23,9 +22,9 @@ import { PageGuardService } from './services/guards/page-guard.service';
 import { AuthGuardService } from './services/guards/auth-guard.service';
 
 import { ProductResolver } from './services/resolvers/product-resolver.service';
+import { ProductsResolver } from './services/resolvers/products-resolver.service';
 import { AddProductResolver } from './services/resolvers/add-product-resolver.service';
 import { ContactResolver } from './services/resolvers/contact-resolver.service';
-// import { FullnameResolver } from './services/resolvers/fullname-resolver.service';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/shared/nav/nav.component';
@@ -40,7 +39,7 @@ import { AccountOverviewComponent } from './components/pages/profile/account-ove
 import { MyOrdersComponent } from './components/pages/profile/my-orders/my-orders.component';
 import { UserComponent } from './components/pages/profile/edit-details/edit-details.component';
 import { ShoppingBagComponent } from './components/pages/shopping-bag/shopping-bag.component';
-import { ProductListComponent } from './components/pages/product-list/product-list.component';
+import { ProductsComponent } from './components/pages/products-list/products-list.component';
 import { SelectComponent } from './components/UI/select/select.component';
 import { CheckoutComponent } from './components/pages/shopping-bag/checkout/checkout.component';
 import { AddProductComponent } from './components/pages/add-product/add-product.component';
@@ -60,7 +59,7 @@ import { AddProductComponent } from './components/pages/add-product/add-product.
     MyOrdersComponent,
     UserComponent,
     ShoppingBagComponent,
-    ProductListComponent,
+    ProductsComponent,
     SelectComponent,
     CheckoutComponent,
     AddProductComponent,
@@ -85,9 +84,9 @@ import { AddProductComponent } from './components/pages/add-product/add-product.
     AuthGuardService,
     UserService,
     ProductResolver,
+    ProductsResolver,
     AddProductResolver,
     ContactResolver,
-    // FullnameResolver,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,

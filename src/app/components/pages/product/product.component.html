@@ -1,11 +1,11 @@
 <div class="productContainer">
-    <img class="productContainer__image" src="https://m.media-amazon.com/images/I/61fTX5TjAEL._UL1001_.jpg">
+    <img class="productContainer__image" src="{{ getProduct().getImageFileName() }}">
 
     <div class="innerContainer">
-        <p class="innerContainer__text">ASOS Dark Future co-ord oversized in black with embroidery</p>
+        <p class="innerContainer__text">{{ getProduct().getTitle() }}</p>
         <label class="innerContainer__text">Size:</label>
         <app-select [options]="['XS', 'S', 'M', 'L', 'XL']" placeholder="Size" width="100px"></app-select>
-        <label class="innerContainer__price">Price: {{ product.price }}</label>
+        <label class="innerContainer__price">Price: {{ getProduct().getPrice() }}</label>
         <div class="buttonContainer">
             <button class="buttonContainer__button">Add to bag</button>
         </div>
