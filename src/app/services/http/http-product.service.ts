@@ -8,6 +8,7 @@ import {
   IAddProductResponse,
   IGetProductResponse,
   IGetProductsResponse,
+  IDeleteProductResponse,
   IGetCategoriesResponse,
   IGetGendersResponse,
 } from 'src/app/models/response';
@@ -35,7 +36,7 @@ export class HttpProductService {
     title: string,
     description: string,
     price: number,
-    image: File
+    image: string,
   ): Observable<IAddProductResponse> {
     const baseUrl = ENDPOINT;
 
@@ -67,13 +68,26 @@ export class HttpProductService {
    */
   public getProducts(
     gender?: ProductGender,
-    category?: ProductCategory
+    category?: ProductCategory,
   ): Observable<IGetProductsResponse> {
     const baseUrl = ENDPOINT;
-    
+
+    const param = !!gender ? `gender=${gender}` : `category=${category}`;
     return this.http.get<IGetProductsResponse>(
-      `${baseUrl + 'list/' + gender}/${category}`
+
+      `${baseUrl}list?${param}`
     );
+  }
+
+  /**
+  * Handler for deleting product
+  * @param id id field of deleting product
+  * @returns IDeleteProductResponse Observable
+  */
+  public deleteProduct(id: string): Observable<IDeleteProductResponse> {
+      const baseUrl = ENDPOINT + id;
+
+      return this.http.delete<IDeleteProductResponse>(baseUrl);
   }
 
   /**

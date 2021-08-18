@@ -4,22 +4,22 @@
   
   <ng-container *ngFor="let product of getProduct()">
     <div class="productContainer">
-        <div class="productInfo">
-          <img
-            class="productInfo__image"
-            src="{{ product.getImageFileName() }}"/>
-          <span class="productInfo__title">{{ product.getTitle() }}</span>
-        </div>
-        <div class="productDetails">
-          <span class="productDetails__price">Price: {{ product.getPrice() }}</span>
-          <span class="productDetails__description">{{ product.getDescription() }}</span>
-          <button 
-            class="productDetails__productButton"
-            [routerLink]="'/product/' + product.getId()">
-            Watch product
-          </button>
-          <button class="productDetails__productButton">Add to bag</button>
-        </div>
+      <div class="productInfo">
+        <img
+          class="productInfo__image"
+          src="{{ product.getImageFileName() }}"/>
+        <span class="productInfo__title">{{ product.getTitle() }}</span>
       </div>
-    </ng-container>
+      <div class="productDetails">
+        <span class="productDetails__price">Price: {{ product.getPrice() }}</span>
+        <span class="productDetails__description">{{ product.getDescription() }}</span>
+        <button 
+          class="productDetails__productButton"
+          [routerLink]="'/product/' + product.getId()">
+          Watch product
+        </button>
+        <button class="productDetails__productButton">Add to bag</button>
+      </div>
+    </div>
+  </ng-container>
 </main>

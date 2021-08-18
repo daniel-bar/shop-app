@@ -40,7 +40,7 @@ export class ProductService {
     title: string,
     description: string,
     price: number,
-    image: File
+    image: string,
   ): Observable<IProductInterface> {
     return this.httpProductService
       .addProduct(category, gender, title, description, price, image)
@@ -92,7 +92,7 @@ export class ProductService {
    */
   public getProducts(
     gender?: ProductGender,
-    category?: ProductCategory
+    category?: ProductCategory,
   ): Observable<IProductInterface[]> {
     return this.httpProductService.getProducts(gender, category).pipe(
       catchError((errorResponse: HttpErrorResponse) => {
@@ -110,6 +110,30 @@ export class ProductService {
       }),
       map((response: IGetProductsResponse) => response.data!)
     );
+  }
+
+  /**
+  * Handler for deleting product
+  * @param id id field of deleting product form
+  * @returns string Observable
+  */
+  public deleteProduct(id: string): Observable<null> {
+    return this.httpProductService.deleteProduct(id)
+      .pipe(catchError((errorResponse: HttpErrorResponse) => {
+        let errorMessage: string;
+
+        switch (errorResponse.status) {
+          case 400:
+            errorMessage = 'Deleting product failed';
+            break;
+          default:
+            errorMessage = 'An error occurred';
+        }
+
+        return throwError(errorMessage);
+      }),
+        map(() => null),
+      );
   }
 
   /**

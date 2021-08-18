@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,7 +12,7 @@ export class NavComponent implements OnInit, OnDestroy {
   private _subscription: Subscription[] = [];
   private _isLoggedIn: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this._subscription.push(

@@ -3,12 +3,14 @@ import { IDBCollectionInterface, DBCollection } from './db-collection.model';
 export interface IUserInterface extends IDBCollectionInterface {
     readonly fullname: string;
     readonly email: string;
+    readonly inBagProducts: string[];
     readonly token?: string;
 }
 
 export class User extends DBCollection {
     private _fullname: string;
     private _email: string;
+    private _inBagProducts: string[];
     private _token?: string;
 
     constructor(userData: IUserInterface) {
@@ -20,6 +22,7 @@ export class User extends DBCollection {
 
         this._fullname = userData.fullname;
         this._email = userData.email;
+        this._inBagProducts = userData.inBagProducts;
 
         if (userData.token) {
             this._token = userData.token;
@@ -40,6 +43,14 @@ export class User extends DBCollection {
     */
     public getEmail() {
         return this._email;
+    }
+
+    /**
+    * Getter for in bag products
+    * @returns products string
+    */
+    public getInBagProducts() {
+        return this._inBagProducts;
     }
 
     /**
@@ -64,6 +75,14 @@ export class User extends DBCollection {
     */
     public setEmail(email: string) {
         this._email = email;
+    }
+
+    /**
+    * Setter for in bag products
+    * @returns void
+    */
+    public setInBagProducts(inBagProducts: string[]) {
+        this._inBagProducts = inBagProducts;
     }
 
     /**

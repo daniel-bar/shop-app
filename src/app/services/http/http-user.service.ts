@@ -4,9 +4,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 
-import { IEditUserDetailsResponse } from 'src/app/models/response';
+import { IAddProductsToBagResponse, IEditUserDetailsResponse } from 'src/app/models/response';
 
-const ENDPOINT = environment.apiUrl + '/profile';
+const ENDPOINT = environment.apiUrl + '/profile/';
 
 @Injectable()
 export class HttpUserService {
@@ -30,6 +30,21 @@ export class HttpUserService {
       password,
       newEmail,
       newPassword,
+    });
+  }
+
+  /**
+   * Handler for adding products to bag
+   * @param productsId products id field of products
+   * @returns string Observable
+   */
+  public addProductsToBag(
+    productsId: string[],
+  ): Observable<IAddProductsToBagResponse> {
+    const baseUrl = ENDPOINT;
+
+    return this.http.post<IAddProductsToBagResponse>(baseUrl, {
+      productsId,
     });
   }
 }

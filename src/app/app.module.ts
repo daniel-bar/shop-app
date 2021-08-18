@@ -28,6 +28,7 @@ import { ContactResolver } from './services/resolvers/contact-resolver.service';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/shared/nav/nav.component';
+import { HomeComponent } from './components/pages/home/home.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
@@ -47,6 +48,7 @@ import { AddProductComponent } from './components/pages/add-product/add-product.
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     NavComponent,
     FooterComponent,
     AboutComponent,
@@ -80,9 +82,9 @@ import { AddProductComponent } from './components/pages/add-product/add-product.
     ContactService,
     ProductService,
     PaymentService,
+    UserService,
     PageGuardService,
     AuthGuardService,
-    UserService,
     ProductResolver,
     ProductsResolver,
     AddProductResolver,

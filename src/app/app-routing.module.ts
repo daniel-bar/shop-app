@@ -60,7 +60,11 @@ const routes: Routes = [
     component: RegisterComponent,
     canActivate: [AuthGuardService],
   },
-  { path: 'login', component: LoginComponent, canActivate: [AuthGuardService] },
+  { 
+    path: 'login', 
+    component: LoginComponent, 
+    canActivate: [AuthGuardService],
+  },
   {
     path: 'profile',
     component: ProfileComponent,

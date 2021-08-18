@@ -16,6 +16,10 @@ export interface IEditUserDetailsResponse extends IResponse {
   readonly data?: IUserInterface;
 }
 
+export interface IAddProductsToBagResponse extends IResponse {
+  readonly data?: IUserInterface;
+}
+
 export interface IPaymentResponse extends IResponse {
   readonly data?: IPaymentInterface;
 }

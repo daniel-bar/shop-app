@@ -14,11 +14,10 @@ export class ProductsResolver implements Resolve<IProductInterface[]> {
 
   constructor(private productService: ProductService) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<
-  IProductInterface[]> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IProductInterface[]> {
     return this.productService.getProducts(
       +route.queryParamMap.get('gender')! as ProductGender,
       +route.queryParamMap.get('category')! as ProductCategory,
-    );
+      );
   }
 }

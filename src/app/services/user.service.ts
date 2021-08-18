@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 
 import { HttpUserService } from './http/http-user.service';
 
-import { IEditUserDetailsResponse } from '../models/response';
+import { IAddProductsToBagResponse, IEditUserDetailsResponse } from '../models/response';
 
 import { IUserInterface } from '../models/user.model';
 
@@ -43,6 +43,34 @@ export class UserService {
           return throwError(errorMessage);
         }),
         map((response: IEditUserDetailsResponse) => response.data!)
+      );
+  }
+
+  /**
+   * Handler for adding products to bag
+   * @param productsId products id field of products
+   * @returns string Observable
+   */
+  public addProductsToBag(
+    productsId: string[],
+  ): Observable<IUserInterface> {
+    return this.httpUserService
+      .addProductsToBag(productsId)
+      .pipe(
+        catchError((errorResponse: HttpErrorResponse) => {
+          let errorMessage: string;
+
+          switch (errorResponse.status) {
+            case 400:
+              errorMessage = 'Editing user details failed';
+              break;
+            default:
+              errorMessage = 'An error occurred';
+          }
+
+          return throwError(errorMessage);
+        }),
+        map((response: IAddProductsToBagResponse) => response.data!)
       );
   }
 }

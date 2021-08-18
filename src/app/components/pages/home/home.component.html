@@ -1,38 +1,68 @@
 <main class="main">
     <div class="main__item main__item--1">
         <img class="categoryImage"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOMGUmxNPK-k7H6O9rScZDBulnrROW5zf_vA&usqp=CAU"
+            src="https://media.istockphoto.com/photos/stack-of-jeans-picture-id683023662?k=6&m=683023662&s=170667a&w=0&h=5BFaQkw-4MwBPTJrgrcR1HggLTD4aA310Z7RNr9ePCU="
             alt="item">
-        <a class="categoryText" routerLink="/">Jeans</a>
+        <a 
+            class="categoryText" 
+            [routerLink]="['/product-list']"
+            [queryParams]="{ category: 1 }">
+            Jeans
+        </a>
     </div>
     <div class="main__item main__item--2">
         <img class="categoryImage"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYRs43ip3txPtxH2gVOlvnmrI--WPqkh8QHg&usqp=CAU"
+            src="https://t3.ftcdn.net/jpg/02/37/16/90/360_F_237169012_RJ87TzRRep97HklV6pfAMgr71tkCevwv.jpg"
             alt="item">
-        <a class="categoryText" routerLink="/">T-Shirts</a>
+        <a 
+            class="categoryText" 
+            [routerLink]="['/product-list']"
+            [queryParams]="{ category: 2 }">
+            T-Shirts
+        </a>
     </div>
     <div class="main__item main__item--3">
         <img class="categoryImage"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScoxDRfLwKyD5ThC8mRC76lByyjWhQKUu4VQ&usqp=CAU"
+            src="https://images.unsplash.com/photo-1531399395381-6603d3b9899f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGhhdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
             alt="item">
-        <a class="categoryText" routerLink="/">Hats</a>
+        <a 
+            class="categoryText" 
+            [routerLink]="['/product-list']"
+            [queryParams]="{ category: 3 }">
+            Hats
+        </a>
     </div>
     <div class="main__item main__item--4">
         <img class="categoryImage"
             src="https://tbsnews.net/sites/default/files/styles/big_2/public/images/2020/04/11/gentleman-man-accessories-sunglasses-wallpaper-preview.jpg?itok=xbyIOxlm&timestamp=1586590381"
             alt="item">
-        <a class="categoryText" routerLink="/">Accessories</a>
+        <a 
+            class="categoryText" 
+            [routerLink]="['/product-list']"
+            [queryParams]="{ category: 4 }">
+            Accessories
+        </a>
     </div>
     <div class="main__item main__item--5">
         <img class="categoryImage"
-            src="https://asset20.ckassets.com/blog/wp-content/uploads/sites/5/2019/12/Jackets-on-Club-factory.jpg"
+            src="https://media.istockphoto.com/photos/leather-jacket-picture-id484543793?k=6&m=484543793&s=612x612&w=0&h=Gji7gM-XaeyVeJfRj8Bs9JA2DE2Rxcofrrh9Bq8x5FM="
             alt="item">
-        <a class="categoryText" routerLink="/">Jackets</a>
+        <a  
+            class="categoryText" 
+            [routerLink]="['/product-list']"
+            [queryParams]="{ category: 5 }">
+            Jackets
+        </a>
     </div>
     <div class="main__item main__item--6">
         <img class="categoryImage"
             src="https://preview.redd.it/9ofx5enj3cw41.jpg?auto=webp&s=8a7996fd197a475a24d98405e09ea9bfa1928d47"
             alt="item">
-        <a class="categoryText" routerLink="/">Shorts</a>
+        <a
+            class="categoryText" 
+            [routerLink]="['/product-list']"
+            [queryParams]="{ category: 6 }">
+            Shorts
+        </a>
     </div>
 </main>

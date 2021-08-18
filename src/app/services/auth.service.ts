@@ -10,13 +10,11 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  private _user$: ReplaySubject<User | null> = new ReplaySubject<User | null>(
-    1
-  );
+  private _user$: ReplaySubject<User | null> = new ReplaySubject<User | null>(1);
 
   constructor(
     private httpUserService: HttpAuthService,
-    private router: Router
+    private router: Router,
   ) {}
 
   /**

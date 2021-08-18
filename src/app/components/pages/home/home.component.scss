@@ -1,9 +1,9 @@
 .main {
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 16px;
+    grid-gap: 20px;
 
     &__item {
         cursor: pointer;
@@ -12,8 +12,8 @@
         flex-direction: column;
         overflow: hidden;
         border: 1px solid transparent;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
         box-shadow: 2px 2px 4px #a0a0a0;
 
         &:hover {
@@ -55,6 +55,7 @@
         width: 100%;
         flex: 1;
         object-fit: cover;
+        filter: grayscale(100%);
     }
 
     .categoryText {

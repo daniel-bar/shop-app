@@ -5,7 +5,7 @@
         <p class="innerContainer__text">{{ getProduct().getTitle() }}</p>
         <label class="innerContainer__text">Size:</label>
         <app-select [options]="['XS', 'S', 'M', 'L', 'XL']" placeholder="Size" width="100px"></app-select>
-        <label class="innerContainer__price">Price: {{ getProduct().getPrice() }}</label>
+        <label class="innerContainer__price">Price: {{ getProduct().getPrice() }}$</label>
         <div class="buttonContainer">
             <button class="buttonContainer__button">Add to bag</button>
         </div>
