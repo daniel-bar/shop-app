@@ -15,7 +15,7 @@ export class HttpPaymentService {
   constructor(private http: HttpClient) {}
 
   /**
-   * Http handler for checkout
+   * Http handler for checkout with new payment
    * @param save save field of checkout form
    * @param fullname fullname field of checkout form
    * @param address address field of checkout form
@@ -28,7 +28,7 @@ export class HttpPaymentService {
    * @param cvv cvv field of checkout form
    * @returns IPaymentResponse Observable
    */
-  public checkout(
+  public checkoutWithNewPayment(
     save: boolean,
     fullname: string,
     address: string,

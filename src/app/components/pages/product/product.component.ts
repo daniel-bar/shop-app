@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data } from '@angular/router';
 import { Subscription } from 'rxjs';
+
+import { UserService } from 'src/app/services/user.service';
+
 import { IProductInterface, Product } from 'src/app/models/product.model';
 
 @Component({
@@ -23,13 +26,14 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private userService: UserService,
   ) { }
 
   ngOnInit() {
     this._subscriptions.push(
       this.route.data.subscribe((data: Data) => {
         this._product = new Product(data['product'] as IProductInterface);
-      })
+      }),
     );
   }
 
@@ -37,6 +41,15 @@ export class ProductComponent implements OnInit {
     for (const subscription of this._subscriptions) {
       subscription.unsubscribe();
     }
+  }
+
+   /**
+   * Handler for adding products to bag
+   * @param productId the products id of the products
+   * @returns void
+   */
+  public addProductToBag(productId: string) {
+    this.userService.addProductToBag(productId).subscribe();
   }
 
   public getProduct() {

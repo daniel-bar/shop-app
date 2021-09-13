@@ -59,19 +59,4 @@
         font-size: 2rem;
         margin-top: 10px;
     }
-
-    .registerSocial {
-        cursor: default;
-        border-radius: 50%;
-        align-self: center;
-        
-        &__icon {
-            cursor: pointer;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            fill: map-get($colors, facebook-primary);
-            box-shadow: 2px 2px 4px #a0a0a0;
-        }
-    }
 }

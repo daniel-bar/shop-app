@@ -5,9 +5,14 @@ import { Observable, throwError } from 'rxjs';
 
 import { HttpUserService } from './http/http-user.service';
 
-import { IAddProductsToBagResponse, IEditUserDetailsResponse } from '../models/response';
+import { 
+  IaddProductToBagResponse,
+  IEditUserDetailsResponse,
+  IGetInBagProductsResponse,
+} from '../models/response';
 
 import { IUserInterface } from '../models/user.model';
+import { IProductInterface } from '../models/product.model';
 
 @Injectable()
 export class UserService {
@@ -48,14 +53,14 @@ export class UserService {
 
   /**
    * Handler for adding products to bag
-   * @param productsId products id field of products
+   * @param productId products id field of products
    * @returns string Observable
    */
-  public addProductsToBag(
-    productsId: string[],
+  public addProductToBag(
+    productId: string,
   ): Observable<IUserInterface> {
     return this.httpUserService
-      .addProductsToBag(productsId)
+      .addProductToBag(productId)
       .pipe(
         catchError((errorResponse: HttpErrorResponse) => {
           let errorMessage: string;
@@ -70,7 +75,32 @@ export class UserService {
 
           return throwError(errorMessage);
         }),
-        map((response: IAddProductsToBagResponse) => response.data!)
+        map((response: IaddProductToBagResponse) => response.data!)
       );
+  }
+
+  /**
+   * Handler for getting in bag products
+   * @returns string Observable
+   */
+  public getInBagProducts(
+    id?: string,
+  ): Observable<IProductInterface[]> {
+    return this.httpUserService.getInBagProducts(id).pipe(
+      catchError((errorResponse: HttpErrorResponse) => {
+        let errorMessage: string;
+
+        switch (errorResponse.status) {
+          case 400:
+            errorMessage = 'Getting in bag products failed';
+            break;
+          default:
+            errorMessage = 'An error occurred';
+        }
+
+        return throwError(errorMessage);
+      }),
+      map((response: IGetInBagProductsResponse) => response.data!)
+    );
   }
 }

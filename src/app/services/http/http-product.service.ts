@@ -74,7 +74,6 @@ export class HttpProductService {
 
     const param = !!gender ? `gender=${gender}` : `category=${category}`;
     return this.http.get<IGetProductsResponse>(
-
       `${baseUrl}list?${param}`
     );
   }

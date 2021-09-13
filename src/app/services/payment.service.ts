@@ -26,7 +26,7 @@ export class PaymentService {
    * @param cvv cvv field of checkout form
    * @returns string Observable
    */
-  public checkout(
+  public checkoutWithNewPayment(
     save: boolean,
     fullname: string,
     address: string,
@@ -39,7 +39,7 @@ export class PaymentService {
     cvv: string
   ): Observable<IPaymentInterface> {
     return this.httpPaymentService
-      .checkout(
+      .checkoutWithNewPayment(
         save,
         fullname,
         address,
@@ -54,7 +54,6 @@ export class PaymentService {
       .pipe(
         catchError((errorResponse: HttpErrorResponse) => {
           let errorMessage: string;
-          console.log(errorResponse.error);
 
           switch (errorResponse.status) {
             case 400:

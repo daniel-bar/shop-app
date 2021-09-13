@@ -3,7 +3,6 @@ import { ActivatedRoute, Data } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { IProductInterface, Product } from 'src/app/models/product.model';
-import { User } from 'src/app/models/user.model';
 
 import { UserService } from 'src/app/services/user.service';
 
@@ -19,7 +18,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private userSrevice: UserService
+    private userService: UserService
     ) { }
   
   ngOnInit() {
@@ -46,11 +45,11 @@ export class ProductsComponent implements OnInit {
 
   /**
    * Handler for adding products to bag
-   * @param productsId the products id of the products
+   * @param productId the products id of the products
    * @returns void
    */
-  public addProductsToBag(productsId: string[]) {
-    this.userSrevice.addProductsToBag(productsId);
+  public addProductToBag(productId: string) {
+    this.userService.addProductToBag(productId).subscribe();
   }
 
   /**

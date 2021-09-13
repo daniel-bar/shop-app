@@ -4,7 +4,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 
-import { IAddProductsToBagResponse, IEditUserDetailsResponse } from 'src/app/models/response';
+import { 
+  IaddProductToBagResponse,
+  IEditUserDetailsResponse,
+  IGetInBagProductsResponse, 
+} from 'src/app/models/response';
 
 const ENDPOINT = environment.apiUrl + '/profile/';
 
@@ -35,16 +39,29 @@ export class HttpUserService {
 
   /**
    * Handler for adding products to bag
-   * @param productsId products id field of products
+   * @param productId products id field of products
    * @returns string Observable
    */
-  public addProductsToBag(
-    productsId: string[],
-  ): Observable<IAddProductsToBagResponse> {
+  public addProductToBag(
+    productId: string,
+  ): Observable<IaddProductToBagResponse> {
     const baseUrl = ENDPOINT;
+    console.log(productId);
 
-    return this.http.post<IAddProductsToBagResponse>(baseUrl, {
-      productsId,
+    return this.http.post<IaddProductToBagResponse>(baseUrl, {
+      productId,
     });
+  }
+
+  /**
+   * Handler for getting in bag products
+   * @returns IGetInBagProductsResponse Observable
+   */
+  public getInBagProducts(
+    id?: string,
+  ): Observable<IGetInBagProductsResponse> {
+    const baseUrl = ENDPOINT + id;
+
+    return this.http.get<IGetInBagProductsResponse>(baseUrl);
   }
 }

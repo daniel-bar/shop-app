@@ -1,3 +1,4 @@
+import { BoundTarget, TargetBinder } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -103,12 +104,11 @@ export class CheckoutComponent implements OnInit {
 
       return;
     }
-    console.log(1);
 
     this._formSubmitFailed = false;
 
     this.paymentServie
-      .checkout(
+      .checkoutWithNewPayment(
         this.form.get('save')!.value,
         this.form.get('fullname')!.value,
         this.form.get('address')!.value,
@@ -126,7 +126,6 @@ export class CheckoutComponent implements OnInit {
           // this.router.navigate(['/']);
         },
         (error: string) => {
-          console.log(error);
           alert(error);
         }
       );

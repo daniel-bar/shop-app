@@ -7,7 +7,11 @@
         <app-select [options]="['XS', 'S', 'M', 'L', 'XL']" placeholder="Size" width="100px"></app-select>
         <label class="innerContainer__price">Price: {{ getProduct().getPrice() }}$</label>
         <div class="buttonContainer">
-            <button class="buttonContainer__button">Add to bag</button>
+            <button 
+                class="buttonContainer__button"
+                (click)="addProductToBag(getProduct().getId())">
+                Add to bag
+            </button>
         </div>
     </div>
 </div>

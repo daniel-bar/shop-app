@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageGuardService } from './services/guards/page-guard.service';
 import { AuthGuardService } from './services/guards/auth-guard.service';
 
+import { InBagProductsResolver } from './services/resolvers/in-bag-products-resolver.service';
 import { ProductResolver } from './services/resolvers/product-resolver.service';
 import { AddProductResolver } from './services/resolvers/add-product-resolver.service';
 import { ContactResolver } from './services/resolvers/contact-resolver.service';
@@ -48,6 +49,7 @@ const routes: Routes = [
     path: 'shopping-bag',
     component: ShoppingBagComponent,
     canActivate: [PageGuardService],
+    resolve: { products: InBagProductsResolver },
     children: [{ path: 'checkout', component: CheckoutComponent }],
   },
   {
@@ -73,7 +75,11 @@ const routes: Routes = [
       { path: '', component: AccountOverviewComponent },
       { path: 'account-overview', component: AccountOverviewComponent },
       { path: 'edit-details', component: UserComponent },
-      { path: 'my-orders', component: MyOrdersComponent },
+      { 
+        path: 'my-orders',
+        component: MyOrdersComponent,
+        resolve: { products: InBagProductsResolver },
+      },
     ],
   },
 ];

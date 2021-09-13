@@ -13,12 +13,5 @@
         <button class="registerForm__button" type="submit">Register</button>
 
         <span *ngIf="getFormSubmitFailed()" class="registerForm__error">Form is invalid</span>
-
-        <h1 class="registerForm__divider">Or register with facebook</h1>
-        <a class="registerSocial">
-            <svg class="registerSocial__icon" routerLink="/">
-                <use xlink:href="assets/icons/main.svg#facebook"></use>
-            </svg>
-        </a>
     </form>
 </main>

@@ -11,14 +11,18 @@
         <span class="productInfo__title">{{ product.getTitle() }}</span>
       </div>
       <div class="productDetails">
-        <span class="productDetails__price">Price: {{ product.getPrice() }}</span>
+        <span class="productDetails__price">Price: {{ product.getPrice() }}$</span>
         <span class="productDetails__description">{{ product.getDescription() }}</span>
         <button 
           class="productDetails__productButton"
           [routerLink]="'/product/' + product.getId()">
           Watch product
         </button>
-        <button class="productDetails__productButton">Add to bag</button>
+        <button 
+          class="productDetails__productButton"
+          (click)="addProductToBag(product.getId())">
+          Add to bag
+      </button>
       </div>
     </div>
   </ng-container>

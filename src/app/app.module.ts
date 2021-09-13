@@ -21,6 +21,7 @@ import { HttpUserService } from './services/http/http-user.service';
 import { PageGuardService } from './services/guards/page-guard.service';
 import { AuthGuardService } from './services/guards/auth-guard.service';
 
+import { InBagProductsResolver } from './services/resolvers/in-bag-products-resolver.service';
 import { ProductResolver } from './services/resolvers/product-resolver.service';
 import { ProductsResolver } from './services/resolvers/products-resolver.service';
 import { AddProductResolver } from './services/resolvers/add-product-resolver.service';
@@ -85,6 +86,7 @@ import { AddProductComponent } from './components/pages/add-product/add-product.
     UserService,
     PageGuardService,
     AuthGuardService,
+    InBagProductsResolver,
     ProductResolver,
     ProductsResolver,
     AddProductResolver,
